@@ -1,5 +1,6 @@
 #!/bin/bash
-# Quality control using FastQC
+
+# Purpose: Perform quality control on raw RNA-seq FASTQ files using FastQC
 # Author: Adil Hannaoui Anaaoui
 
 WORKDIR="/mnt/c/Users/rna-seq/"                            
