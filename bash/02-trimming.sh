@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Purpose: Perform adapter trimming and quality filtering of raw RNA-seq FASTQ files
+# using Trimmomatic. The output are cleaned FASTQ files suitable for downstream
+# alignment.
+
+# Author: Adil Hannaoui Anaaoui
+
 set -euo pipefail
 
 WORKDIR="/mnt/c/Users/rna-seq/"
