@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# Purpose: Align trimmed RNA-seq reads to the Saccharomyces cerevisiae reference genome
+# using HISAT2. The output are sorted BAM files suitable for quantification.
+
+# Author: Adil Hannaoui Anaaoui
+
 set -euo pipefail
 
 WORKDIR="/mnt/c/Users/rna-seq"
