@@ -25,7 +25,7 @@ cd "$WORKDIR"
 # ======================
 # Pipeline
 # ======================
-for FASTQ_FILE in "$FASTQ_DIR"/*.fastq; do
+for FASTQ_FILE in "$FASTQC_PRE_DIR"/*.fastq; do
     SAMPLE_NAME=$(basename "$FASTQ_FILE" .fastq)
     echo "Processing sample: $SAMPLE_NAME"
 
@@ -33,13 +33,13 @@ for FASTQ_FILE in "$FASTQ_DIR"/*.fastq; do
     # FastQC (raw reads)
     # ----------------------
     fastqc "$FASTQ_FILE" \
-      -o "$OUTPUT_DIR/fastqc_pre" \
-      > "$OUTPUT_DIR/logs/fastqc_pre_${SAMPLE_NAME}.log" 2>&1
+      -o "$FASTQC_PRE_DIR" \
+      > "$LOG_DIR/fastqc_pre_${SAMPLE_NAME}.log" 2>&1
 
     # ----------------------
     # Trimming
     # ----------------------
-    TRIMMED_FASTQ_FILE="$OUTPUT_DIR/fastq_trimmed/${SAMPLE_NAME}_trimmed.fastq"
+    TRIMMED_FASTQ_FILE="$TRIMMED_FASTQ_DIR/${SAMPLE_NAME}_trimmed.fastq"
 
     java -jar "$TRIMMO_JAR" SE \
       -threads "$THREADS" \
@@ -60,13 +60,13 @@ for FASTQ_FILE in "$FASTQ_DIR"/*.fastq; do
     # FastQC (trimmed reads)
     # ----------------------
     fastqc "$TRIMMED_FASTQ_FILE" \
-      -o "$OUTPUT_DIR/fastqc_post" \
-      > "$OUTPUT_DIR/logs/fastqc_post_${SAMPLE_NAME}.log" 2>&1
+      -o "$FASTQC_POST_DIR" \
+      > "$LOG_DIR/fastqc_post_${SAMPLE_NAME}.log" 2>&1
 
     # ----------------------
     # HISAT2 alignment
     # ----------------------
-    BAM_FILE="$OUTPUT_DIR/hisat2/${SAMPLE_NAME}_trimmed.bam"
+    BAM_FILE="$HISAT2_DIR/${SAMPLE_NAME}_trimmed.bam"
 
     hisat2 -q \
       --rna-strandness R \
@@ -79,7 +79,7 @@ for FASTQ_FILE in "$FASTQ_DIR"/*.fastq; do
     # ----------------------
     # featureCounts
     # ----------------------
-    FEATURECOUNTS_OUTPUT="$OUTPUT_DIR/featurecounts/${SAMPLE_NAME}_featurecounts.txt"
+    FEATURECOUNTS_OUTPUT="$FEATURECOUNTS_DIR/${SAMPLE_NAME}_featurecounts.txt"
 
     featureCounts \
       -T "$THREADS" \
