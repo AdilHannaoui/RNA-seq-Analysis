@@ -45,7 +45,7 @@ for FASTQ_FILE in "$FASTQC_PRE_DIR"/*.fastq; do
       -threads "$THREADS" \
       "$FASTQ_FILE" \
       "$TRIMMED_FASTQ_FILE" \
-      ILLUMINACLIP:"$WORKDIR/Trimmomatic-0.39/adapters/TruSeq3-SE.fa":2:30:10 \
+      ILLUMINACLIP:"$TRIMMOMATIC_ADAPTERS":2:30:10 \
       SLIDINGWINDOW:4:20 \
       TRAILING:10 \
       MINLEN:20 \
