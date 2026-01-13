@@ -9,6 +9,8 @@ The analysis covers:
 * Read alignment and quantification
 * Differential expression analysis
 * Downstream statistical analysis and visualization
+
+The objective of this project is to characterize transcriptional changes associated with phospho-null and phospho-mimetic mutations in the Rpb4 subunit.
 </p>
 
 ## Experimental design
@@ -20,6 +22,8 @@ The analysis covers:
   - Rpb4-S/T-D (n = 3)
 - Data type: RNA-seq (Single End)
 
+Biological replicates were used for all conditions.
+
 ## Dataset
 <p align="justify">
 RNA-seq data were generated at the Institute of Functional Biology and Genomics (IBFG).
@@ -28,13 +32,9 @@ Due to data usage restrictions, raw sequencing files (FASTQ) cannot be publicly 
 Gene-level count matrices and sample metadata are provided in this repository,
 allowing full reproducibility of the downstream statistical analysis.
 </p>
-## RNA-seq pipeline
 
-1. Quality control using FastQC
-2. Adapter trimming and filtering using Trimmomatic
-3. Alignment to the reference genome using HISAT2
-4. Gene-level quantification using FeatureCounts
-5. Differential expression analysis with DESeq2
+## RNA-seq pipeline
+The pipeline includes preprocessing, alignment, quantification, and differential expression analysis.
 
 ## Biologic Context
 
@@ -65,7 +65,28 @@ The purpose of these constructs is to determine the functional role of these res
 ## Repository structure
 
 ```text
-bash/        RNA-seq preprocessing scripts  
+bash/        RNA-seq preprocessing scripts (separated modules and complete pipeline)
 R/           Statistical analysis scripts  
 data/        Count matrix and sample metadata  
 results/     Figures and tables  
+```
+## Methods
+All analyses were performed using FastQC v0.11.9, Trimmomatic v0.39, HISAT2 v2.2.1, featureCounts v2.0, and R v4.5.0 The pipeline was executed on a Linux environment.
+
+### FastQC and Trimmomatic
+<p align="justify">
+Quality control of the FASTQ files was performed using FastQC, followed by a trimming process with Trimmomatic according to the following criteria:
+
+* ILLUMINACLIP:2:30:10: Removal of Illumina adapter sequences.
+
+* SLIDINGWINDOW:4:20: Quality-based trimming using a 4-base sliding window with an average Phred quality threshold of 20 (99% base-call accuracy).
+
+* MINLEN:20: Length-based filtering to discard processed reads shorter than 20 bases. This threshold facilitates a broad exploratory analysis by prioritizing sensitivity in transcript detection.
+</p>
+
+### HISAT2 Alignment
+Sequence alignment was performed using HISAT2, a splice-aware aligner specifically designed for RNA-seq analysis. Since the libraries were prepared using the Illumina TruSeq Stranded protocol, the resulting reads originate from the reverse strand. Consequently, the ```--rna-strandness R``` option was applied to account for the strandedness of the sequencing data.
+
+
+### FeatureCounts
+Finally, the featureCounts tool was utilized to generate a gene count matrix for all samples in this study. This step is critical for the subsequent differential expression analysis using DESeq2. The ```-S 2``` option was specified to remain consistent with the reverse-stranded protocol employed during sequencing. The resulting file was saved in the ```/data``` directory of this repository.
