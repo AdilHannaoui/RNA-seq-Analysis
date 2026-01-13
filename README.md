@@ -71,7 +71,7 @@ data/        Count matrix and sample metadata
 results/     Figures and tables  
 ```
 ## Methods
-All analyses were performed using FastQC v0.11.9, Trimmomatic v0.39, HISAT2 v2.2.1, featureCounts v2.0, and R v4.5.0 The pipeline was executed on a Linux environment.
+All analyses were performed using FastQC v0.11.9, Trimmomatic v0.39, HISAT2 v2.2.1, featureCounts v2.0, and R v4.4.0 The pipeline was executed on a Linux environment.
 
 ### FastQC and Trimmomatic
 <p align="justify">
