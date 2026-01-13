@@ -6,24 +6,19 @@ SECONDS=0
 # ======================
 # Configuration
 # ======================
-WORKDIR="/mnt/c/Users/rna-seq"
-FASTQ_DIR="$WORKDIR/data"
-TRIMMO_JAR="$WORKDIR/Trimmomatic-0.39/trimmomatic-0.39.jar"
-HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
-GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
-OUTPUT_DIR="$WORKDIR/output"
-THREADS=6
+
+source ./config.sh
 
 # ======================
 # Directory setup
 # ======================
 mkdir -p \
-  "$OUTPUT_DIR/fastqc_pre" \
-  "$OUTPUT_DIR/fastqc_post" \
-  "$OUTPUT_DIR/fastq_trimmed" \
-  "$OUTPUT_DIR/hisat2" \
-  "$OUTPUT_DIR/featurecounts" \
-  "$OUTPUT_DIR/logs"
+  "$FASTQC_PRE_DIR" \
+  "$FASTQC_POST_DIR" \
+  "$TRIMMED_FASTQ_DIR" \
+  "$HISAT2_DIR" \
+  "$FEATURECOUNTS_DIR" \
+  "$LOG_DIR"
 
 cd "$WORKDIR"
 
