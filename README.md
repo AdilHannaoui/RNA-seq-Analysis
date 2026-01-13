@@ -5,10 +5,10 @@
 This repository contains a complete RNA-seq analysis pipeline applied to Saccharomyces cerevisiae strains carrying mutations in the Rpb4 subunit of RNA polymerase II.
 
 The analysis covers:
-* Quality control of raw FASTQ files
-* Read alignment and quantification
-* Differential expression analysis
-* Downstream statistical analysis and visualization
+* Quality control of raw FASTQ files using FastQC and Trimmomatic
+* Read alignment and quantification using HISAT2
+* Differential expression analysis using FeatureCounts
+* Downstream statistical analysis and visualization using DEseq2
 </p>
 
 ## Experimental design
