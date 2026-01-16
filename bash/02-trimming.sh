@@ -28,7 +28,7 @@ for FASTQ_FILE in "$FASTQ_DIR"/*.fastq; do
     java -jar "$TRIMMO_JAR" SE -threads "$THREADS" \
         "$FASTQ_FILE" "$TRIMMED_FASTQ_FILE" \
         ILLUMINACLIP:"$WORKDIR/Trimmomatic-0.39/adapters/TruSeq3-SE.fa:2:30:10" \
-        SLIDINGWINDOW:4:20 MINLEN:20 TRAILING:10 -phred33
+        SLIDINGWINDOW:4:20 MINLEN:20 -phred33
 
     # Check if trimming was successful
     if [ ! -s "$TRIMMED_FASTQ_FILE" ]; then
