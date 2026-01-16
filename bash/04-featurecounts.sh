@@ -8,6 +8,7 @@ set -euo pipefail
 WORKDIR="/mnt/c/Users/rna-seq"
 OUTPUT_DIR="$WORKDIR/output"
 FASTQ_DIR="$OUTPUT_DIR/fastq_trimmed"
+GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
 THREADS=6
 
 mkdir -p "$OUTPUT_DIR/featurecounts"
