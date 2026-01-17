@@ -9,12 +9,11 @@
 PROJECT_ROOT <- getwd()
 
 DATA_DIR <- file.path(PROJECT_ROOT, "data")
-RESULTS_DIR <- file.path(PROJECT_ROOT, "results")
+OUTPUT_DIR <- file.path(PROJECT_ROOT, "output")
 
 COUNTS_MATRIX_PATH <- "data/counts_matrix.csv"
-RESULTS_DIR <- "results"
-PLOTS_DIR <- file.path(RESULTS_DIR, "plots")
-TABLES_DIR <- file.path(RESULTS_DIR, "tables")
+PLOTS_DIR <- file.path(OUTPUT_DIR, "plots")
+TABLES_DIR <- file.path(OUTPUT_DIR, "tables")
 
 # --------------------------
 # Experimental design
