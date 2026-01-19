@@ -90,3 +90,22 @@ Sequence alignment was performed using HISAT2, a splice-aware aligner specifical
 
 ### FeatureCounts
 Finally, the featureCounts tool was utilized to generate a gene count matrix for all samples in this study. This step is critical for the subsequent differential expression analysis using DESeq2. The ```-S 2``` option was specified to remain consistent with the reverse-stranded protocol employed during sequencing. The resulting file was saved in the ```/data``` directory of this repository.
+
+
+### DESeq2 analysis
+Differential expression was assessed using the DESeq2 package. This allows us to compare gene expression across the experimental conditions included in this study. A key caveat is that the WT samples were processed in two separate batches—one containing Rpb4‑S/T‑A and the other Rpb4‑S/T‑D—so batch must be included as a covariate when building the sample metadata in R to avoid confounding technical and biological effects.
+
+```
+colData <- data.frame(
+  sample = sample_names,
+  condition = factor(CONDITIONS)
+)
+rownames(colData) <- sample_names
+
+batch_vec <- c("batch1","batch1","batch1", # WT 1-3 (batch 1)
+               "batch2","batch2","batch2", # WT 4-6 (batch 2)
+               "batch1","batch1","batch1", # A 1-3
+               "batch2","batch2","batch2") # D 1-3
+
+colData$batch <- factor(batch_vec)
+```
