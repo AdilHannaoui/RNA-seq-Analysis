@@ -109,3 +109,8 @@ batch_vec <- c("batch1","batch1","batch1", # WT 1-3 (batch 1)
 
 colData$batch <- factor(batch_vec)
 ```
+
+## Results
+### MA plot
+[![Figure 1 — MA plot](Plots/MA_WT_vs_A_thumb.png)](Plots/MA_WT_vs_A.pdf)
+**Caption:** MA plot (WT vs A). Most genes centered at log2FC ≈ 0; highlighted genes meet padj < 0.05.
