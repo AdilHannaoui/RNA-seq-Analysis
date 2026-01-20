@@ -113,8 +113,6 @@ El análisis de componentes principales muestra una separación clara entre las 
 The transcriptomic comparisons between the mutant strains and the wild type show that altering the phosphorylatable residues of Rpb4 has a clear impact on gene expression. Both variants, the phospho-null and the phosphomimetic, display deviations from the WT pattern, indicating that Rpb4 phosphorylation participates in the normal regulation of the transcriptome. The S/T-A strain exhibits broader and more dispersed changes, consistent with a complete loss of phosphorylation-dependent regulation, whereas the S/T-D strain shows a more moderate profile, compatible with a partial mimicry of the phosphorylated state. Taken together, these results suggest that the ability of Rpb4 to be phosphorylated contributes to its regulatory function, although a deeper functional analysis will be necessary to determine which pathways or cellular processes are specifically affected.
 
 
-
-
 ### Volcano plot
 <p float="left">
   <img src="Plots/Volcano_WT_vs_A.png" width="45%" />
@@ -122,3 +120,11 @@ The transcriptomic comparisons between the mutant strains and the wild type show
 </p>
 
 The volcano plots confirm that mutations in the phosphorylatable residues of Rpb4 induce statistically significant changes in gene expression compared to the wild type. The phospho-null strain (S/T-A) displays a larger number of differentially expressed genes, with a more pronounced range of regulatory changes, suggesting a deeper deregulation of the transcriptome. In contrast, the phosphomimetic strain (S/T-D) shows a more conserved profile, consistent with a partial preservation of Rpb4’s regulatory function. These results reinforce the idea that Rpb4 phosphorylation is necessary to maintain proper control of gene expression, although they do not yet allow the identification of which cellular processes are affected without further functional analysis.
+
+
+### Heatmap
+<p float="left">
+  <img src="Plots/Heatmap_top50_WT_vs_conditions" width="70%" 
+</p>
+
+Este heatmap muestra los 50 genes más significativamente regulados en la comparación WT vs Rpb4-S/T-A, visualizados en todas las condiciones experimentales. Se observa una clara separación entre los perfiles transcriptómicos de WT, Alanina y Aspartato, lo que confirma que las mutaciones en los residuos fosforilables de Rpb4 generan efectos reproducibles y específicos sobre la expresión génica. La cepa fosfo-nula presenta una desregulación más marcada, mientras que la fosfomimética conserva parcialmente el patrón del tipo silvestre. Estos resultados refuerzan la implicación funcional de la fosforilación de Rpb4 en la regulación coordinada de programas génicos, y justifican un análisis funcional posterior para identificar las rutas afectadas.
