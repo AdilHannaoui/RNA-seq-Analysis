@@ -12,16 +12,16 @@ dependencies:
   - fastqc=0.11.9
   - trimmomatic=0.39
   - hisat2=2.2.1
-  - featureCounts=2.0.3
-  - samtools=1.13
+  - subread=2.0.3
+  - samtools=1.13 
 
   # R packages
   - r-tidyverse
-  - r-DESeq2
+  - r-deseq2
   - r-pheatmap
   - r-ggplot2
   - r-org.sc.sgd.db
-  - r-clusterProfiler
+  - r-clusterprofiler
   - r-enrichplot
-  - r-grid
-  - r-gridExtra
+  - r-gridextra
+  - r-data.table 
