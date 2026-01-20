@@ -96,6 +96,29 @@ Finally, the featureCounts tool was utilized to generate a gene count matrix for
 Differential expression was assessed using the DESeq2 package. This allows us to compare gene expression across the experimental conditions included in this study.
 
 ## Results
+### PCA
+<p float="left">
+  <img src="Plots/PCA_all_samples.png" width="70%"
+</p>
+
+El análisis de componentes principales muestra una separación clara entre las tres condiciones transcriptómicas: tipo silvestre, mutante fosfo-nulo (S/T-A) y mutante fosfomimético (S/T-D). La mayor fuente de variación (PC1) distingue al WT de los mutantes, mientras que la segunda componente (PC2) separa los dos tipos de mutación, indicando que sus efectos sobre la expresión génica son distintos. Estos resultados confirman que la fosforilación de Rpb4 tiene un impacto global sobre el transcriptoma y que su alteración genera perfiles específicos según el tipo de sustitución.
+
+
 ### MA plot
-[![Figure 1 — MA plot](Plots/MA_WT_vs_A_thumb.png)](Plots/MA_WT_vs_A.pdf)
-**Caption:** MA plot (WT vs A). Most genes centered at log2FC ≈ 0; highlighted genes meet padj < 0.05.
+<p float="left">
+  <img src="Plots/MA_WT_vs_A.png" width="45%" />
+  <img src="Plots/MA_WT_vs_D.png" width="45%" />
+</p>
+
+The transcriptomic comparisons between the mutant strains and the wild type show that altering the phosphorylatable residues of Rpb4 has a clear impact on gene expression. Both variants, the phospho-null and the phosphomimetic, display deviations from the WT pattern, indicating that Rpb4 phosphorylation participates in the normal regulation of the transcriptome. The S/T-A strain exhibits broader and more dispersed changes, consistent with a complete loss of phosphorylation-dependent regulation, whereas the S/T-D strain shows a more moderate profile, compatible with a partial mimicry of the phosphorylated state. Taken together, these results suggest that the ability of Rpb4 to be phosphorylated contributes to its regulatory function, although a deeper functional analysis will be necessary to determine which pathways or cellular processes are specifically affected.
+
+
+
+
+### Volcano plot
+<p float="left">
+  <img src="Plots/Volcano_WT_vs_A.png" width="45%" />
+  <img src="Plots/Volcano_WT_vs_D.png" width="45%" />
+</p>
+
+The volcano plots confirm that mutations in the phosphorylatable residues of Rpb4 induce statistically significant changes in gene expression compared to the wild type. The phospho-null strain (S/T-A) displays a larger number of differentially expressed genes, with a more pronounced range of regulatory changes, suggesting a deeper deregulation of the transcriptome. In contrast, the phosphomimetic strain (S/T-D) shows a more conserved profile, consistent with a partial preservation of Rpb4’s regulatory function. These results reinforce the idea that Rpb4 phosphorylation is necessary to maintain proper control of gene expression, although they do not yet allow the identification of which cellular processes are affected without further functional analysis.
