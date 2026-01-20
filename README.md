@@ -1,4 +1,4 @@
-# RNA-seq-Analysis
+# RNA-seq Analysis Pipeline for Rpb4 Mutants in Saccharomyces cerevisiae
 
 ## Project overview
 <p align="justify">
