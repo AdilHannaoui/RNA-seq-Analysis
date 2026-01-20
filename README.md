@@ -10,7 +10,19 @@ The analysis covers:
 * Differential expression analysis
 * Downstream statistical analysis and visualization
 
-The objective of this project is to characterize transcriptional changes associated with phospho-null and phospho-mimetic mutations in the Rpb4 subunit.
+The objective of this project is to characterize transcriptional changes associated with phospho-null and phospho-mimetic mutations in the Rpb4 subunit. This pipeline is fully reproducible using the Conda environment defined in ```environment.yml```
+
+```
+conda env create -f environment.yml
+conda activate rnaseq-rpb4
+```
+
+After this, the final step is to run the master pipeline:
+
+```
+bash run_pipeline.sh
+```
+
 </p>
 
 ## Experimental design
@@ -65,11 +77,14 @@ The purpose of these constructs is to determine the functional role of these res
 ## Repository structure
 
 ```text
-bash/        RNA-seq preprocessing scripts (separated modules and complete pipeline)
-R/           Statistical analysis scripts  
-data/        Count matrix and sample metadata  
-results/     Figures and tables  
+├── run_pipeline.sh
+├── environment.yml
+├── bash/
+├── R/
+├── data/
+├── Plots/
 ```
+
 ## Methods
 All analyses were performed using FastQC v0.11.9, Trimmomatic v0.39, HISAT2 v2.2.1, featureCounts v2.0, and R v4.4.0 The pipeline was executed on a Linux environment.
 
