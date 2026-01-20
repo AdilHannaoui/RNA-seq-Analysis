@@ -102,7 +102,7 @@ Differential expression was assessed using the DESeq2 package. This allows us to
 </p>
 
 <p align="justify">
-El análisis de componentes principales muestra una separación clara entre las tres condiciones transcriptómicas: tipo silvestre, mutante fosfo-nulo (S/T-A) y mutante fosfomimético (S/T-D). La mayor fuente de variación (PC1) distingue al WT de los mutantes, mientras que la segunda componente (PC2) separa los dos tipos de mutación, indicando que sus efectos sobre la expresión génica son distintos. Estos resultados confirman que la fosforilación de Rpb4 tiene un impacto global sobre el transcriptoma y que su alteración genera perfiles específicos según el tipo de sustitución.
+The principal component analysis, performed after filtering out genes with fewer than 10 total counts (MIN_COUNTS_FILTER = 10), reveals a clear separation among the three transcriptomic conditions: wild type (WT), phospho‑null mutant (S/T‑A), and phosphomimetic mutant (S/T‑D). The major source of variation (PC1) distinctly separates WT from both mutants, while PC2 consistently distinguishes the two allelic variants. This structure indicates that substitutions at the phosphorylatable residues of Rpb4 generate global and differentiated effects on gene expression.
 </p>
 
 ### MA plot
@@ -112,7 +112,9 @@ El análisis de componentes principales muestra una separación clara entre las 
 </p>
 
 <p align="justify">
-The transcriptomic comparisons between the mutant strains and the wild type show that altering the phosphorylatable residues of Rpb4 has a clear impact on gene expression. Both variants, the phospho-null and the phosphomimetic, display deviations from the WT pattern, indicating that Rpb4 phosphorylation participates in the normal regulation of the transcriptome. The S/T-A strain exhibits broader and more dispersed changes, consistent with a complete loss of phosphorylation-dependent regulation, whereas the S/T-D strain shows a more moderate profile, compatible with a partial mimicry of the phosphorylated state. Taken together, these results suggest that the ability of Rpb4 to be phosphorylated contributes to its regulatory function, although a deeper functional analysis will be necessary to determine which pathways or cellular processes are specifically affected.
+Differential expression comparisons between each mutant and the WT, applying the adjusted significance threshold (PADJ_THRESHOLD = 0.05) and the minimum fold‑change requirement (LOG2FC_THRESHOLD = 1), show that altering the S/T residues of Rpb4 has a robust impact on the transcriptome.
+The S/T‑A mutant displays a larger number of genes surpassing both thresholds, with a broader and more dispersed regulatory pattern, consistent with a complete loss of phosphorylation‑dependent regulation.
+In contrast, the S/T‑D mutant exhibits a more moderate profile, with fewer genes meeting the significance and magnitude criteria, suggesting partial preservation of the functional state associated with phosphorylation.
 </p>
 
 ### Volcano plot
@@ -122,7 +124,10 @@ The transcriptomic comparisons between the mutant strains and the wild type show
 </p>
 
 <p align="justify">
-The volcano plots confirm that mutations in the phosphorylatable residues of Rpb4 induce statistically significant changes in gene expression compared to the wild type. The phospho-null strain (S/T-A) displays a larger number of differentially expressed genes, with a more pronounced range of regulatory changes, suggesting a deeper deregulation of the transcriptome. In contrast, the phosphomimetic strain (S/T-D) shows a more conserved profile, consistent with a partial preservation of Rpb4’s regulatory function. These results reinforce the idea that Rpb4 phosphorylation is necessary to maintain proper control of gene expression, although they do not yet allow the identification of which cellular processes are affected without further functional analysis.
+The volcano plots, generated using the same criteria (padj < 0.05 and |log2FC| ≥ 1), confirm that both mutations induce statistically significant transcriptomic changes relative to WT.
+The phospho‑null mutant (S/T‑A) shows a clearly higher number of differentially expressed genes and a wider range of log2FC values, indicating deeper deregulation.
+The phosphomimetic mutant (S/T‑D) maintains a more conserved profile, consistent with partial retention of Rpb4’s regulatory function.
+These results reinforce the notion that Rpb4 phosphorylation is required to maintain proper control of gene expression.
 </p>
 
 ### Heatmap
@@ -131,7 +136,10 @@ The volcano plots confirm that mutations in the phosphorylatable residues of Rpb
 </p>
 
 <p align="justify">
-This heatmap shows the 50 most significantly regulated genes in the WT vs Rpb4-S/T-A comparison, visualized across all experimental conditions. A clear separation is observed between the transcriptomic profiles of WT, Alanine, and Aspartate, confirming that mutations in the phosphorylatable residues of Rpb4 produce reproducible and specific effects on gene expression. The phospho-null strain exhibits a more pronounced deregulation, whereas the phosphomimetic strain partially preserves the wild-type pattern. These results reinforce the functional involvement of Rpb4 phosphorylation in the coordinated regulation of gene programs and justify further functional analysis to identify the affected pathways.
+The heatmap, built from the 50 most significantly regulated genes in the WT vs S/T‑A comparison (ranked by padj), shows clearly distinct expression patterns among WT, S/T‑A, and S/T‑D.
+Even when using ORF identifiers (GENE_ID_TYPE = "ORF") and the org.Sc.sgd.db annotation, the separation between conditions remains consistent.
+The S/T‑A mutant exhibits a more pronounced and coordinated deregulation, whereas S/T‑D partially preserves the WT pattern.
+These results highlight the contribution of Rpb4 phosphorylation to the coordination of specific gene programs.
 </p>
 
 ### Enrichment Analysis
@@ -141,10 +149,24 @@ This heatmap shows the 50 most significantly regulated genes in the WT vs Rpb4-S
 </p>
 
 <p align="justify">
-Functional enrichment analyses reveal that the phospho-null Rpb4-S/T-A mutation induces a significant deregulation of metabolic pathways, with a marked downregulation of processes related to nucleotide biosynthesis (particularly purines and IMP) and an upregulation of pathways associated with amino acid metabolism, such as arginine and glutamine. In contrast, the phosphomimetic Rpb4-S/T-D mutation affects reproductive and organic acid biosynthetic processes, while activating pathways involved in amino acid catabolism and protein folding. These results indicate that Rpb4 phosphorylation selectively modulates metabolic and cellular stress programs, with distinct effects depending on the type of substitution.
+The functional enrichment analysis, performed on differentially expressed genes meeting both padj < 0.05 and |log2FC| ≥ 1, and restricted to the biological process ontology (GO_ONTOLOGY = "BP") with p‑value < 0.05 and q‑value < 0.05, reveals distinct functional signatures for each mutant.
+* Rpb4‑S/T‑A (phospho‑null)
+  * Strong deregulation of metabolic pathways.
+  * Negative enrichment in nucleotide biosynthesis processes, particularly purines and IMP.
+  * Positive enrichment in amino acid metabolism pathways, including arginine and glutamine.
+    This profile is consistent with a complete loss of phosphorylation‑dependent regulation.
+
+* Rpb4‑S/T‑D (phosphomimetic)
+  * Alterations in reproductive processes and organic acid biosynthesis.
+  * Activation of pathways related to amino acid catabolism and protein folding responses.
+    These changes suggest partial modulation of Rpb4‑dependent regulatory programs.
 </p>
 
 ## Conclusions
 <p align="justify">
-The set of transcriptomic analyses demonstrates that Rpb4 phosphorylation plays a functionally relevant role in gene regulation. The PCA shows a clear separation among the three conditions, indicating that the phospho-null (S/T-A) and phosphomimetic (S/T-D) mutations generate distinct and reproducible transcriptomic profiles. The MA and volcano plots confirm that both mutations induce significant changes in gene expression, with more pronounced effects in the S/T-A strain. The heatmap of the most regulated genes reinforces this difference, showing coordinated deregulation in the Alanine mutant and a more conserved pattern in Aspartate. Finally, GO analyses reveal that these mutations alter specific metabolic pathways, affecting nucleotide biosynthesis, amino acid metabolism, reproduction, and protein stress response processes. Altogether, the data indicate that Rpb4’s ability to be phosphorylated is essential for maintaining the cell’s transcriptomic and functional homeostasis.
+The set of transcriptomic analyses, applying strict filtering and significance criteria (minimum counts, padj < 0.05, |log2FC| ≥ 1), demonstrates that Rpb4 phosphorylation is essential for maintaining transcriptomic homeostasis.
+The PCA reveals globally distinct profiles among WT, S/T‑A, and S/T‑D.
+The MA and volcano plots confirm that both mutations generate significant changes, with stronger effects in the phospho‑null mutant.
+The heatmap of the most regulated genes reinforces this difference, showing coordinated deregulation in S/T‑A and a more conserved pattern in S/T‑D.
+Finally, the GO‑BP enrichment analysis shows that the mutations affect specific metabolic and cellular response pathways, underscoring the functional importance of Rpb4 phosphorylation in gene regulation.
 </p>
