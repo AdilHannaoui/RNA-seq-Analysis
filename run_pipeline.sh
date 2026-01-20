@@ -3,7 +3,8 @@
 set -e
 set -o pipefail
 
-echo "Pipeline started at: $(date)"
+SECONDS=0
+echo "=== Pipeline started successfully ===)"
 
 # 1. Environment Activation
 echo "[1/7] Activating Conda environment..."
@@ -39,4 +40,5 @@ Rscript R/01_deseq2_analysis.R $CONFIG_R
 Rscript R/02_visualizations.R $CONFIG_R
 Rscript R/03_enrichment.R $CONFIG_R
 
-echo "=== Pipeline completed successfully at $(date) ==="
+duration=$SECONDS
+echo "Total execution time: $((duration / 60)) minutes $((duration % 60)) seconds"
