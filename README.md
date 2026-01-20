@@ -150,6 +150,7 @@ These results highlight the contribution of Rpb4 phosphorylation to the coordina
 
 <p align="justify">
 The functional enrichment analysis, performed on differentially expressed genes meeting both padj < 0.05 and |log2FC| ≥ 1, and restricted to the biological process ontology (GO_ONTOLOGY = "BP") with p‑value < 0.05 and q‑value < 0.05, reveals distinct functional signatures for each mutant.
+  
 * Rpb4‑S/T‑A (phospho‑null)
   * Strong deregulation of metabolic pathways.
   * Negative enrichment in nucleotide biosynthesis processes, particularly purines and IMP.
