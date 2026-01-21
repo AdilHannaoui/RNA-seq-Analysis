@@ -232,3 +232,12 @@ The MA and volcano plots confirm that both mutations generate significant change
 The heatmap of the most regulated genes reinforces this difference, showing coordinated deregulation in S/T‑A and a more conserved pattern in S/T‑D.
 Finally, the GO‑BP enrichment analysis shows that the mutations affect specific metabolic and cellular response pathways, underscoring the functional importance of Rpb4 phosphorylation in gene regulation.
 </p>
+
+
+## Limitations
+
+* The raw RNA-seq sequence files used in this project cannot be uploaded to the repository, which may limit full reproducibility of the analyses. However, the count matrices, ```dds``` objects, and metadata are included in the ```data``` folder, enabling complete reproducibility of all statistical analysis steps.
+
+* Example/sample data are also provided to verify that the master pipeline runs correctly.
+
+* Some input versions used in the analyses are outdated, which may give the impression of slightly outdated results.
