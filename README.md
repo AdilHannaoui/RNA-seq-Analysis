@@ -1,6 +1,6 @@
 # RNA-seq Analysis Pipeline for Rpb4 Mutants in Saccharomyces cerevisiae
 
-## Project overview
+## Overview
 <p align="justify">
 This repository contains a complete RNA-seq analysis pipeline applied to Saccharomyces cerevisiae strains carrying mutations in the Rpb4 subunit of RNA polymerase II.
 
@@ -10,20 +10,78 @@ The analysis covers:
 * Differential expression analysis
 * Downstream statistical analysis and visualization
 
-The objective of this project is to characterize transcriptional changes associated with phospho-null and phospho-mimetic mutations in the Rpb4 subunit. This pipeline is fully reproducible using the Conda environment defined in ```environment.yml```
+The objective of this project is to characterize transcriptional changes associated with phospho-null and phospho-mimetic mutations in the Rpb4 subunit.
+
+## Repository structure
+
+```text
+├── run_pipeline.sh
+├── environment.yml
+├── bash/
+├── R/
+├── data/
+├── Plots/
+```
+
+## Installation and running the pipeline
+The ```run_pipeline.sh``` script orchestrates all preprocessing, alignment, quantification, and downstream R analyses in a single command.
+
+All analyses are fully reproducible using the Conda environment defined in ```environment.yml```.
 
 ```
 conda env create -f environment.yml
 conda activate rnaseq-rpb4
 ```
 
-After this, the final step is to run the master pipeline:
+Before running the pipeline, ensure execution permissions:
+
+```
+chmod +x run_pipeline.sh
+chmod +x bash/*.sh
+```
+
+Run the full workflow with:
 
 ```
 bash run_pipeline.sh
 ```
 
 </p>
+
+
+## Configuration files
+
+The selected inputs can be found in the configuration files used for each of the pipeline modules. These can be found in the files ```bash/config.sh``` and ```R/config.R```. The modules themselves follow the following structure:
+
+```text
+├── bash/01-fastqc.sh
+├── bash/02-trimming.sh
+├── bash/03-alignment_hisat2.sh
+├── bash/04-featurecounts.sh
+├── R/01-load_counts.R
+├── R/02-deseq2_analysis.R
+├── R/03-enrichment_analysis.R
+├── R/04-visualizations.R
+```
+
+## Inputs and Outputs
+
+Inputs:
+* FASTQ (test data included)
+* FASTA (```ftp.ensembl.org/pub/release-112/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz```)
+* GTF File (```ftp.ensembl.org/pub/release-112/gtf/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf.gz```)
+* configuration files (```R/config.R``` and ```bash/config.sh```)
+* 
+The HISAT2 index must be generated from the provided FASTA before running the alignment step. The Path is located in ```bash/config.sh```
+
+Outputs:
+* QC reports (```bash/01-fastqc.sh```)
+* trimmed FASTQ (```bash/02-trimming.sh```)
+* BAM (```bash/03-alignment_hisat2.sh```)
+* count matrix (```bash/04-featurecounts.sh```)
+* DESeq2 tables (```R/02-deseq2_analysis.R```)
+* enrichment analysis (```R/03-enrichment_analysis.R```)
+* Figures (```R/04-visualizations.R```)
 
 ## Experimental design
 
@@ -38,17 +96,16 @@ Biological replicates were used for all conditions.
 
 ## Dataset
 <p align="justify">
+  
 RNA-seq data were generated at the Institute of Functional Biology and Genomics (IBFG).
-Due to data usage restrictions, raw sequencing files (FASTQ) cannot be publicly shared.
+Due to data usage restrictions, raw sequencing files (FASTQ) cannot be publicly shared. However, test data will be uploaded to the ``` data/ ``` folder to allow testing of the pipeline’s functionality.
 
 Gene-level count matrices and sample metadata are provided in this repository,
 allowing full reproducibility of the downstream statistical analysis.
 </p>
 
-## RNA-seq pipeline
-The pipeline includes preprocessing, alignment, quantification, and differential expression analysis.
 
-## Biologic Context
+## Biological Context
 
 ### About Saccharomyces cerevisiae
 <p align="justify">
@@ -74,19 +131,8 @@ This project, carried out at the Institute of Functional Biology and Genomics (I
 The purpose of these constructs is to determine the functional role of these residues in Rpb4 activity and, consequently, in the proper performance of RNA polymerase II, assessing how phosphorylation (or its absence) influences key transcriptional processes.
 </p>
 
-## Repository structure
-
-```text
-├── run_pipeline.sh
-├── environment.yml
-├── bash/
-├── R/
-├── data/
-├── Plots/
-```
-
 ## Methods
-All analyses were performed using FastQC v0.11.9, Trimmomatic v0.39, HISAT2 v2.2.1, featureCounts v2.0, and R v4.4.0 The pipeline was executed on a Linux environment.
+The pipeline includes preprocessing (FastQC v0.11.9, Trimmomatic v0.39), alignment (HISAT2 v2.2.1), quantification (featureCounts v2.0), and differential expression analysis (R v4.4.0).
 
 ### FastQC and Trimmomatic
 <p align="justify">
