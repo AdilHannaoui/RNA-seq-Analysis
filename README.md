@@ -76,7 +76,7 @@ Inputs:
 * GTF File (```ftp.ensembl.org/pub/release-112/gtf/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf.gz```)
 * configuration files (```R/config.R``` and ```bash/config.sh```)
 * 
-The HISAT2 index must be generated from the provided FASTA before running the alignment step. The Path is located in ```bash/config.sh```
+The HISAT2 index must be generated from the provided FASTA before running the alignment step. The Path is defined in ```bash/config.sh```
 
 Outputs:
 * QC reports (```bash/01-fastqc.sh```)
