@@ -9,7 +9,7 @@ The analysis covers:
 * Read alignment and quantification
 * Differential expression analysis
 * Downstream statistical analysis and visualization
-
+<img src="Plots/Workflow.png" style="display:block; margin:0 auto; max-width:100%;">
 The objective of this project is to characterize transcriptional changes associated with phospho-null and phospho-mimetic mutations in the Rpb4 subunit.
 
 ## Repository structure
