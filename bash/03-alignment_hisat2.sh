@@ -11,7 +11,7 @@ HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
 GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
 
 OUTPUT_DIR="$WORKDIR/output"
-FASTQ_DIR="$OUTPUT_DIR/fastq_trimmed"
+FASTQ_TRIM="$OUTPUT_DIR/fastq_trimmed"
 THREADS=8
 
 mkdir -p "$OUTPUT_DIR/hisat2"
@@ -22,10 +22,10 @@ cd "$WORKDIR"
 # --------------------------
 # Detect FASTQ files (.fastq or .fastq.gz)
 # --------------------------
-FASTQ_FILES=($(ls "$FASTQ_DIR"/*.fastq "$FASTQ_DIR"/*.fastq.gz 2>/dev/null || true))
+FASTQ_FILES=($(ls "$FASTQ_TRIM"/*.fastq "$FASTQ_TRIM"/*.fastq.gz 2>/dev/null || true))
 
 if [[ ${#FASTQ_FILES[@]} -eq 0 ]]; then
-    echo "No FASTQ files found in $FASTQ_DIR"
+    echo "No FASTQ files found in $FASTQ_TRIM"
     exit 1
 fi
 
@@ -44,7 +44,7 @@ for f in "${FASTQ_FILES[@]}"; do
 done
 
 # Refresh list after decompression
-FASTQ_FILES=($(ls "$FASTQ_DIR"/*.fastq))
+FASTQ_FILES=($(ls "$FASTQ_TRIM"/*.fastq))
 
 # --------------------------
 # Function to run HISAT2 + samtools sort
