@@ -6,14 +6,6 @@ set -euo pipefail
 # Author: Adil Hannaoui Anaaoui
 # ==========================
 
-WORKDIR="/mnt/c/Users/rna-seq/"
-TRIMMO_JAR="$WORKDIR/Trimmomatic-0.39/trimmomatic-0.39.jar"
-ADAPTERS="$WORKDIR/Trimmomatic-0.39/adapters/TruSeq3-SE.fa"
-
-FASTQ_DIR="$WORKDIR/data/"
-OUTPUT_DIR="$WORKDIR/output/"
-THREADS=8
-
 mkdir -p "$OUTPUT_DIR/fastq_trimmed"
 mkdir -p "$OUTPUT_DIR/fastqc_trimmed"
 mkdir -p "$OUTPUT_DIR/logs"
