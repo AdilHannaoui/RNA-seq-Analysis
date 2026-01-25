@@ -7,6 +7,10 @@
 # ----------------------
 # Project directories
 # ----------------------
+WORKDIR="/mnt/c/Users/rna-seq/"
+FASTQ_DIR="$WORKDIR/data/"
+OUTPUT_DIR="$WORKDIR/output"
+
 WORKDIR="/mnt/c/Users/rna-seq"
 FASTQ_DIR="$WORKDIR/data"
 OUTPUT_DIR="$WORKDIR/output"
