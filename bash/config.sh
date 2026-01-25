@@ -7,6 +7,13 @@
 # ----------------------
 # Project directories
 # ----------------------
+
+WORKDIR="/mnt/c/Users/rna-seq"
+HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
+GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
+
+OUTPUT_DIR="$WORKDIR/output"
+FASTQ_DIR="$OUTPUT_DIR/fastq_trimmed"
 WORKDIR="/mnt/c/Users/rna-seq/"
 FASTQ_DIR="$WORKDIR/data/"
 OUTPUT_DIR="$WORKDIR/output"
