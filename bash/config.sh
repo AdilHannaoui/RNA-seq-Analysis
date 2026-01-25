@@ -9,7 +9,8 @@
 # ----------------------
 WORKDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUTPUT_DIR="$WORKDIR/output"
-FASTQ_DIR="$OUTPUT_DIR/fastq_trimmed"
+FASTQ_TRIM="$OUTPUT_DIR/fastq_trimmed"
+FASTQ_DIR="$WORKDIR/data"
 HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
 GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
 BAM_DIR="$OUTPUT_DIR/hisat2"
