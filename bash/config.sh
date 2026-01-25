@@ -11,6 +11,13 @@ WORKDIR="/mnt/c/Users/rna-seq/"
 FASTQ_DIR="$WORKDIR/data/"
 OUTPUT_DIR="$WORKDIR/output"
 
+WORKDIR="/mnt/c/Users/rna-seq/"
+TRIMMO_JAR="$WORKDIR/Trimmomatic-0.39/trimmomatic-0.39.jar"
+ADAPTERS="$WORKDIR/Trimmomatic-0.39/adapters/TruSeq3-SE.fa"
+
+FASTQ_DIR="$WORKDIR/data/"
+OUTPUT_DIR="$WORKDIR/output/"
+
 WORKDIR="/mnt/c/Users/rna-seq"
 FASTQ_DIR="$WORKDIR/data"
 OUTPUT_DIR="$WORKDIR/output"
