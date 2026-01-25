@@ -1,42 +1,100 @@
-#!/bin/bash
-
-# Purpose: Perform adapter trimming and quality filtering of raw RNA-seq FASTQ files
-# using Trimmomatic. The output are cleaned FASTQ files suitable for downstream
-# alignment.
-
-# Author: Adil Hannaoui Anaaoui
-
+#!/usr/bin/env bash
 set -euo pipefail
+
+# ==========================
+# Trimmomatic QC + Adapter Removal (parallel + pigz)
+# Author: Adil Hannaoui Anaaoui
+# ==========================
 
 WORKDIR="/mnt/c/Users/rna-seq/"
 TRIMMO_JAR="$WORKDIR/Trimmomatic-0.39/trimmomatic-0.39.jar"
+ADAPTERS="$WORKDIR/Trimmomatic-0.39/adapters/TruSeq3-SE.fa"
+
 FASTQ_DIR="$WORKDIR/data/"
 OUTPUT_DIR="$WORKDIR/output/"
-THREADS=6
+THREADS=8
 
-cd "$WORKDIR"
 mkdir -p "$OUTPUT_DIR/fastq_trimmed"
 mkdir -p "$OUTPUT_DIR/fastqc_trimmed"
+mkdir -p "$OUTPUT_DIR/logs"
 
-for FASTQ_FILE in "$FASTQ_DIR"/*.fastq; do
+cd "$WORKDIR"
+
+# --------------------------
+# Detect FASTQ files (.fastq or .fastq.gz)
+# --------------------------
+FASTQ_FILES=($(ls "$FASTQ_DIR"/*.fastq "$FASTQ_DIR"/*.fastq.gz 2>/dev/null || true))
+
+if [[ ${#FASTQ_FILES[@]} -eq 0 ]]; then
+    echo "No FASTQ files found in $FASTQ_DIR"
+    exit 1
+fi
+
+echo "Found ${#FASTQ_FILES[@]} FASTQ files."
+
+# --------------------------
+# Optional: decompress gz files using pigz
+# --------------------------
+echo "Checking for compressed FASTQ files..."
+
+for f in "${FASTQ_FILES[@]}"; do
+    if [[ "$f" == *.gz ]]; then
+        echo "Decompressing $f using pigz..."
+        pigz -d -p "$THREADS" "$f"
+    fi
+done
+
+# Refresh list after decompression
+FASTQ_FILES=($(ls "$FASTQ_DIR"/*.fastq))
+
+# --------------------------
+# Function to run Trimmomatic + FastQC
+# --------------------------
+run_trim() {
+    FASTQ_FILE="$1"
     SAMPLE_NAME=$(basename "$FASTQ_FILE" .fastq)
-    echo "Processing Sample: $SAMPLE_NAME"
 
-    TRIMMED_FASTQ_FILE="$OUTPUT_DIR/fastq_trimmed/${SAMPLE_NAME}_trimmed.fastq"
+    TRIMMED_FASTQ="$OUTPUT_DIR/fastq_trimmed/${SAMPLE_NAME}_trimmed.fastq"
+    LOGFILE="$OUTPUT_DIR/logs/${SAMPLE_NAME}_trim.log"
 
-    # Run Trimmomatic
-    java -jar "$TRIMMO_JAR" SE -threads "$THREADS" \
-        "$FASTQ_FILE" "$TRIMMED_FASTQ_FILE" \
-        ILLUMINACLIP:"$WORKDIR/Trimmomatic-0.39/adapters/TruSeq3-SE.fa:2:30:10" \
-        SLIDINGWINDOW:4:20 MINLEN:20 -phred33
+    echo ">>> Trimming $SAMPLE_NAME"
 
-    # Check if trimming was successful
-    if [ ! -s "$TRIMMED_FASTQ_FILE" ]; then
-        echo "Error: Trimmomatic failed for $SAMPLE_NAME"
+    java -jar "$TRIMMO_JAR" SE \
+        -threads 1 \
+        "$FASTQ_FILE" "$TRIMMED_FASTQ" \
+        ILLUMINACLIP:"$ADAPTERS:2:30:10" \
+        SLIDINGWINDOW:4:20 \
+        MINLEN:20 \
+        -phred33 \
+        > "$LOGFILE" 2>&1
+
+    if [[ ! -s "$TRIMMED_FASTQ" ]]; then
+        echo "ERROR: Trimmomatic failed for $SAMPLE_NAME" >&2
         exit 1
     fi
 
-    # FastQC post-trimming
-    fastqc "$TRIMMED_FASTQ_FILE" -o "$OUTPUT_DIR/fastqc_trimmed" \
-        > "$OUTPUT_DIR/${SAMPLE_NAME}_trimmed.log" 2>&1
-done
+    echo ">>> Running FastQC on trimmed file: $SAMPLE_NAME"
+
+    fastqc "$TRIMMED_FASTQ" \
+        --threads 1 \
+        --outdir "$OUTPUT_DIR/fastqc_trimmed" \
+        >> "$LOGFILE" 2>&1
+
+    echo ">>> Finished $SAMPLE_NAME"
+}
+
+export -f run_trim
+export TRIMMO_JAR ADAPTERS OUTPUT_DIR
+
+# --------------------------
+# Run trimming in parallel
+# --------------------------
+echo "Running Trimmomatic in parallel using $THREADS threads..."
+
+parallel -j "$THREADS" run_trim ::: "${FASTQ_FILES[@]}"
+
+echo "All trimming + FastQC completed."
+echo "Trimmed FASTQ files: $OUTPUT_DIR/fastq_trimmed"
+echo "FastQC reports: $OUTPUT_DIR/fastqc_trimmed"
+echo "Logs: $OUTPUT_DIR/logs"
+
