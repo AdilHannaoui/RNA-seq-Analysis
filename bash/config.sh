@@ -7,27 +7,15 @@
 # ----------------------
 # Project directories
 # ----------------------
-
 WORKDIR="/mnt/c/Users/rna-seq"
-HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
-GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
-
 OUTPUT_DIR="$WORKDIR/output"
 FASTQ_DIR="$OUTPUT_DIR/fastq_trimmed"
-WORKDIR="/mnt/c/Users/rna-seq/"
-FASTQ_DIR="$WORKDIR/data/"
-OUTPUT_DIR="$WORKDIR/output"
-
-WORKDIR="/mnt/c/Users/rna-seq/"
+HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
+GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
+BAM_DIR="$OUTPUT_DIR/hisat2"
 TRIMMO_JAR="$WORKDIR/Trimmomatic-0.39/trimmomatic-0.39.jar"
 ADAPTERS="$WORKDIR/Trimmomatic-0.39/adapters/TruSeq3-SE.fa"
 
-FASTQ_DIR="$WORKDIR/data/"
-OUTPUT_DIR="$WORKDIR/output/"
-
-WORKDIR="/mnt/c/Users/rna-seq"
-FASTQ_DIR="$WORKDIR/data"
-OUTPUT_DIR="$WORKDIR/output"
 
 # ----------------------
 # Computational resources
