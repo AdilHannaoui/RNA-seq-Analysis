@@ -1,34 +1,83 @@
-#!/bin/bash
-# Purpose: Quantify gene expression from aligned RNA-seq BAM files using featureCounts.
-# Produces both raw count tables and simplified count files for downstream analysis.
-# Author: Adil Hannaoui Anaaoui
-
+#!/usr/bin/env bash
 set -euo pipefail
+
+# ==========================
+# featureCounts Quantification Module (parallel)
+# Author: Adil Hannaoui Anaaoui
+# ==========================
 
 WORKDIR="/mnt/c/Users/rna-seq"
 OUTPUT_DIR="$WORKDIR/output"
 FASTQ_DIR="$OUTPUT_DIR/fastq_trimmed"
+BAM_DIR="$OUTPUT_DIR/hisat2"
 GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
-THREADS=6
+THREADS=8
 
 mkdir -p "$OUTPUT_DIR/featurecounts"
+mkdir -p "$OUTPUT_DIR/logs"
+
 cd "$WORKDIR"
 
-for FASTQ_FILE in "$FASTQ_DIR"/*.fastq; do
+# --------------------------
+# Detect FASTQ files (to infer sample names)
+# --------------------------
+FASTQ_FILES=($(ls "$FASTQ_DIR"/*.fastq 2>/dev/null || true))
+
+if [[ ${#FASTQ_FILES[@]} -eq 0 ]]; then
+    echo "No FASTQ files found in $FASTQ_DIR"
+    exit 1
+fi
+
+echo "Found ${#FASTQ_FILES[@]} samples."
+
+# --------------------------
+# Function to run featureCounts
+# --------------------------
+run_featurecounts() {
+    FASTQ_FILE="$1"
     SAMPLE_NAME=$(basename "$FASTQ_FILE" .fastq)
-    echo "Processing Sample: $SAMPLE_NAME"
 
-    BAM_FILE="$OUTPUT_DIR/hisat2/${SAMPLE_NAME}_trimmed.bam"
-    FEATURECOUNTS_OUTPUT="$OUTPUT_DIR/featurecounts/${SAMPLE_NAME}_featurecounts.txt"
+    BAM_FILE="$BAM_DIR/${SAMPLE_NAME}.bam"
+    OUTFILE="$OUTPUT_DIR/featurecounts/${SAMPLE_NAME}_featurecounts.txt"
+    LOGFILE="$OUTPUT_DIR/logs/${SAMPLE_NAME}_featurecounts.log"
 
-    # Run featureCounts
-    if ! featureCounts -T "$THREADS" -S 2 -a "$GTF_FILE" -o "$FEATURECOUNTS_OUTPUT" "$BAM_FILE"; then
-        echo "Error: featureCounts failed for $SAMPLE_NAME"
-        continue
+    echo ">>> Quantifying $SAMPLE_NAME"
+
+    if [[ ! -f "$BAM_FILE" ]]; then
+        echo "ERROR: BAM file not found for $SAMPLE_NAME" >&2
+        exit 1
     fi
 
-    # Extract only gene ID and counts
-    cut -f1,7 "$FEATURECOUNTS_OUTPUT" | tail -n +2 > "$OUTPUT_DIR/featurecounts/Counts_${SAMPLE_NAME}.txt"
-    echo "featureCounts finished for $SAMPLE_NAME!"
-done
+    # Run featureCounts
+    featureCounts \
+        -T 1 \
+        -S 2 \
+        -a "$GTF_FILE" \
+        -o "$OUTFILE" \
+        "$BAM_FILE" \
+        > "$LOGFILE" 2>&1
 
+    if [[ ! -s "$OUTFILE" ]]; then
+        echo "ERROR: featureCounts failed for $SAMPLE_NAME" >&2
+        exit 1
+    fi
+
+    # Extract gene ID + counts
+    cut -f1,7 "$OUTFILE" | tail -n +2 > "$OUTPUT_DIR/featurecounts/Counts_${SAMPLE_NAME}.txt"
+
+    echo ">>> Finished $SAMPLE_NAME"
+}
+
+export -f run_featurecounts
+export BAM_DIR OUTPUT_DIR GTF_FILE
+
+# --------------------------
+# Run featureCounts in parallel
+# --------------------------
+echo "Running featureCounts in parallel using $THREADS threads..."
+
+parallel -j "$THREADS" run_featurecounts ::: "${FASTQ_FILES[@]}"
+
+echo "All featureCounts quantifications completed."
+echo "Results saved in: $OUTPUT_DIR/featurecounts"
+echo "Logs saved in: $OUTPUT_DIR/logs"
