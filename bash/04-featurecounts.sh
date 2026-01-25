@@ -6,13 +6,6 @@ set -euo pipefail
 # Author: Adil Hannaoui Anaaoui
 # ==========================
 
-WORKDIR="/mnt/c/Users/rna-seq"
-OUTPUT_DIR="$WORKDIR/output"
-FASTQ_DIR="$OUTPUT_DIR/fastq_trimmed"
-BAM_DIR="$OUTPUT_DIR/hisat2"
-GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
-THREADS=8
-
 mkdir -p "$OUTPUT_DIR/featurecounts"
 mkdir -p "$OUTPUT_DIR/logs"
 
@@ -21,10 +14,10 @@ cd "$WORKDIR"
 # --------------------------
 # Detect FASTQ files (to infer sample names)
 # --------------------------
-FASTQ_FILES=($(ls "$FASTQ_DIR"/*.fastq 2>/dev/null || true))
+FASTQ_FILES=($(ls "$FASTQ_TRIM"/*.fastq 2>/dev/null || true))
 
 if [[ ${#FASTQ_FILES[@]} -eq 0 ]]; then
-    echo "No FASTQ files found in $FASTQ_DIR"
+    echo "No FASTQ files found in $FASTQ_TRIM"
     exit 1
 fi
 
