@@ -7,7 +7,7 @@
 # ----------------------
 # Project directories
 # ----------------------
-WORKDIR="/mnt/c/Users/rna-seq"
+WORKDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUTPUT_DIR="$WORKDIR/output"
 FASTQ_DIR="$OUTPUT_DIR/fastq_trimmed"
 HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
