@@ -9,7 +9,7 @@ set -euo pipefail
 WORKDIR="/mnt/c/Users/rna-seq/"
 FASTQ_DIR="$WORKDIR/data/"
 OUTPUT_DIR="$WORKDIR/output"
-THREADS=6
+THREADS=8
 
 mkdir -p "$OUTPUT_DIR/fastqc_results"
 mkdir -p "$OUTPUT_DIR/logs"
