@@ -6,14 +6,6 @@ set -euo pipefail
 # Author: Adil Hannaoui Anaaoui
 # ==========================
 
-WORKDIR="/mnt/c/Users/rna-seq"
-HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
-GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
-
-OUTPUT_DIR="$WORKDIR/output"
-FASTQ_TRIM="$OUTPUT_DIR/fastq_trimmed"
-THREADS=8
-
 mkdir -p "$OUTPUT_DIR/hisat2"
 mkdir -p "$OUTPUT_DIR/logs"
 
