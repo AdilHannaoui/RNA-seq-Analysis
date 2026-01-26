@@ -14,8 +14,8 @@ FASTQ_DIR="$WORKDIR/data"
 HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
 GTF_FILE="$WORKDIR/HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
 BAM_DIR="$OUTPUT_DIR/hisat2"
-TRIMMO_JAR="$WORKDIR/Trimmomatic-0.39/trimmomatic-0.39.jar"
-ADAPTERS="$WORKDIR/Trimmomatic-0.39/adapters/TruSeq3-SE.fa"
+TRIMMO_JAR="$CONDA_PREFIX/share/trimmomatic-0.39-*/trimmomatic-0.39.jar"
+ADAPTERS="$CONDA_PREFIX/share/trimmomatic-0.39-*/adapters/TruSeq3-SE.fa"
 
 
 # ----------------------
