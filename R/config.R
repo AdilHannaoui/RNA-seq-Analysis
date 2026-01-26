@@ -6,14 +6,14 @@
 # --------------------------
 # Project structure
 # --------------------------
-PROJECT_ROOT <- getwd()
+PROJECT_ROOT <- normalizePath(file.path(dirname(sys.frame(1)$ofile), ".."))
 
 DATA_DIR <- file.path(PROJECT_ROOT, "data")
 OUTPUT_DIR <- file.path(PROJECT_ROOT, "output")
 
-COUNTS_MATRIX_PATH <- "output/counts_matrix.rds"
-SAMPLE_METADATA_PATH <- "output/colData.rds"
-FEATURECOUNTS_DIR <- "output/featurecounts/"
+COUNTS_MATRIX_PATH <- file.path(OUTPUT_DIR, "counts_matrix.rds")
+SAMPLE_METADATA_PATH <- file.path(OUTPUT_DIR, "colData.rds")
+FEATURECOUNTS_DIR <- file.path(OUTPUT_DIR, "featurecounts")
 PLOTS_DIR <- file.path(OUTPUT_DIR, "plots")
 TABLES_DIR <- file.path(OUTPUT_DIR, "tables")
 
@@ -47,3 +47,4 @@ QVAL_CUTOFF <- 0.05
 # --------------------------
 ORG_DB <- "org.Sc.sgd.db"
 GENE_ID_TYPE <- "ORF" 
+
