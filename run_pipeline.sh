@@ -20,25 +20,25 @@ CONFIG_bash="bash/config.sh"
 
 # 3. QC
 echo "[3/7] Running FastQC..."
-bash bash/01_fastqc.sh $CONFIG_bash
+bash bash/01-fastqc.sh $CONFIG_bash
 
 # 4. Trimming
 echo "[4/7] Running Trimmomatic..."
-bash bash/02_trimming.sh $CONFIG_bash
+bash bash/02-trimming.sh $CONFIG_bash
 
 # 5. Alineamiento
 echo "[5/7] Running HISAT2..."
-bash bash/03_alignment.sh $CONFIG_bash
+bash bash/03-alignment.sh $CONFIG_bash
 
 # 6. Counts
 echo "[6/7] Running featureCounts..."
-bash bash/04_featurecounts.sh $CONFIG_bash
+bash bash/04-featurecounts.sh $CONFIG_bash
 
 # 7. R Analysis
 echo "[7/7] Running DESeq2 and downstream analysis..."
-Rscript R/01_deseq2_analysis.R $CONFIG_R
-Rscript R/02_visualizations.R $CONFIG_R
-Rscript R/03_enrichment.R $CONFIG_R
+Rscript R/01-deseq2_analysis.R $CONFIG_R
+Rscript R/02-visualizations.R $CONFIG_R
+Rscript R/03-enrichment.R $CONFIG_R
 
 duration=$SECONDS
 echo "Total execution time: $((duration / 60)) minutes $((duration % 60)) seconds"
