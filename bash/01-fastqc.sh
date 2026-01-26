@@ -5,6 +5,8 @@ set -euo pipefail
 # FastQC QC Module (parallel + pigz)
 # Author: Adil Hannaoui Anaaoui
 # ==========================
+# Load global config
+source "$(dirname "$0")/../config.sh"
 
 mkdir -p "$OUTPUT_DIR"
 mkdir -p "$OUTPUT_DIR/fastqc_results"
