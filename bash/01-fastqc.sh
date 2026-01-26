@@ -6,6 +6,7 @@ set -euo pipefail
 # Author: Adil Hannaoui Anaaoui
 # ==========================
 
+mkdir -p "$OUTPUT_DIR"
 mkdir -p "$OUTPUT_DIR/fastqc_results"
 mkdir -p "$OUTPUT_DIR/logs"
 
