@@ -5,6 +5,8 @@ set -euo pipefail
 # featureCounts Quantification Module (parallel)
 # Author: Adil Hannaoui Anaaoui
 # ==========================
+# Load global config
+source "$(dirname "$0")/../config.sh"
 
 mkdir -p "$OUTPUT_DIR/featurecounts"
 mkdir -p "$OUTPUT_DIR/logs"
