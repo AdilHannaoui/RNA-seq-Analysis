@@ -5,6 +5,8 @@ set -euo pipefail
 # HISAT2 Alignment Module (parallel + pigz)
 # Author: Adil Hannaoui Anaaoui
 # ==========================
+# Load global config
+source "$(dirname "$0")/../config.sh"
 
 mkdir -p "$OUTPUT_DIR/hisat2"
 mkdir -p "$OUTPUT_DIR/logs"
