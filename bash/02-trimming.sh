@@ -5,6 +5,8 @@ set -euo pipefail
 # Trimmomatic QC + Adapter Removal (parallel + pigz)
 # Author: Adil Hannaoui Anaaoui
 # ==========================
+# Load global config
+source "$(dirname "$0")/../config.sh"
 
 mkdir -p "$OUTPUT_DIR/fastq_trimmed"
 mkdir -p "$OUTPUT_DIR/fastqc_trimmed"
