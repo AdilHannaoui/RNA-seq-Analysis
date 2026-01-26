@@ -7,7 +7,7 @@
 # ----------------------
 # Project directories
 # ----------------------
-WORKDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORKDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUTPUT_DIR="$WORKDIR/output"
 FASTQ_TRIM="$OUTPUT_DIR/fastq_trimmed"
 FASTQ_DIR="$WORKDIR/data"
