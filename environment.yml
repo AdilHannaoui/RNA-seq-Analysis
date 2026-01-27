@@ -18,7 +18,11 @@ dependencies:
   - pigz
 
   # R packages
-  - r-tidyverse
+  - r-dplyr
+  - r-readr
+  - r-tidyr
+  - r-stringr
+  - r-forcats
   - bioconductor-deseq2
   - r-pheatmap
   - r-ggplot2
