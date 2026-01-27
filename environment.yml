@@ -15,7 +15,7 @@ dependencies:
   - subread=2.0.3
   - samtools=1.13
   - parallel
-  - pigvz
+  - pigz
 
   # R packages
   - r-tidyverse
