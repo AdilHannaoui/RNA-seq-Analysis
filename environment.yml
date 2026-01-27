@@ -18,12 +18,12 @@ dependencies:
   - pigz
 
   # R packages
-  - bioconductor-tidyverse
+  - r-tidyverse
   - bioconductor-deseq2
-  - bioconductor-pheatmap
-  - bioconductor-ggplot2
+  - r-pheatmap
+  - r-ggplot2
   - bioconductor-org.sc.sgd.db
   - bioconductor-clusterprofiler
   - bioconductor-enrichplot
-  - bioconductor-gridextra
-  - bioconductor-data.table 
+  - r-gridextra
+  - r-data.table 
