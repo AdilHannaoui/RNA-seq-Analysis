@@ -23,8 +23,8 @@ THREADS=8
 # ----------------------
 
 # Trimmomatic
-TRIMMO_JAR="$CONDA_PREFIX/share/trimmomatic-0.40-*/trimmomatic-0.40.jar"
-ADAPTERS="$CONDA_PREFIX/share/trimmomatic-0.40-*/adapters/TruSeq3-SE.fa"
+TRIMMO_JAR="$CONDA_PREFIX/share/trimmomatic/trimmomatic.jar"
+ADAPTERS="$CONDA_PREFIX/share/trimmomatic/adapters/TruSeq3-SE.fa"
 
 # HISAT2
 HISAT2_INDEX="$WORKDIR/HISAT2/cerevisiae/index/genome"
