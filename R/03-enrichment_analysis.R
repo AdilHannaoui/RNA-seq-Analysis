@@ -14,7 +14,7 @@ library(grid)
 # --------------------------
 # 1. Load config
 # --------------------------
-source("config.R")  # contiene rutas, log2FC_threshold, ontología, etc.
+source("R/config.R")  # contiene rutas, log2FC_threshold, ontología, etc.
 
 # --------------------------
 # 2. Load DESeq2 results
@@ -65,3 +65,4 @@ perform_enrichGO <- function(res, comparison_name) {
 # --------------------------
 enrich_WT_vs_A <- perform_enrichGO(res_WT_vs_A, "WT_vs_A")
 enrich_WT_vs_D <- perform_enrichGO(res_WT_vs_D, "WT_vs_D")
+
