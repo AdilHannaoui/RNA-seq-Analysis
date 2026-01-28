@@ -7,7 +7,7 @@
 # Load libraries
 # --------------------------
 library(DESeq2)
-library(tidyverse)
+library(ggplot2)
 library(pheatmap)
 library(ggplot2)
 library(gridExtra)
