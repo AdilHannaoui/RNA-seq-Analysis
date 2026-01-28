@@ -32,8 +32,26 @@ The ```run_pipeline.sh``` script orchestrates all preprocessing, alignment, quan
 
 All analyses are fully reproducible using the Conda environment defined in ```environment.yml```.
 
+### Recommended: install ```mamba``` for faster environment creation
+Creating environments that include R + Bioconductor can be slow with the default Conda solver. For a much faster and smoother installation, it is recommended to install mamba in the base environment
+
+```conda install -n base mamba```
+
+then create the environment using:
+
+```
+mamba env create -f environment.yml
+```
+
+If you prefer to use Conda:
+
 ```
 conda env create -f environment.yml
+```
+
+Activate the environment
+
+```
 conda activate rnaseq-rpb4
 ```
 
