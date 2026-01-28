@@ -4,12 +4,8 @@
 # ==========================
 
 library(DESeq2)
-library(tidyverse)
 library(clusterProfiler)
 library(org.Sc.sgd.db)
-library(enrichplot)
-library(gridExtra)
-library(grid)
 
 # --------------------------
 # 1. Load config
@@ -65,4 +61,3 @@ perform_enrichGO <- function(res, comparison_name) {
 # --------------------------
 enrich_WT_vs_A <- perform_enrichGO(res_WT_vs_A, "WT_vs_A")
 enrich_WT_vs_D <- perform_enrichGO(res_WT_vs_D, "WT_vs_D")
-
