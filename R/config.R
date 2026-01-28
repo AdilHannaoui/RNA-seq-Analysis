@@ -14,7 +14,7 @@ OUTPUT_DIR <- file.path(PROJECT_ROOT, "output")
 COUNTS_MATRIX_PATH <- file.path(OUTPUT_DIR, "counts_matrix.rds")
 SAMPLE_METADATA_PATH <- file.path(OUTPUT_DIR, "colData.rds")
 FEATURECOUNTS_DIR <- file.path(OUTPUT_DIR, "featurecounts")
-PLOTS_DIR <- file.path(OUTPUT_DIR, "plots")
+PLOTS_DIR <- file.path(PROJECT_ROOT, "Plots")
 TABLES_DIR <- file.path(OUTPUT_DIR, "tables")
 
 # --------------------------
@@ -47,4 +47,5 @@ QVAL_CUTOFF <- 0.05
 # --------------------------
 ORG_DB <- "org.Sc.sgd.db"
 GENE_ID_TYPE <- "ORF" 
+
 
