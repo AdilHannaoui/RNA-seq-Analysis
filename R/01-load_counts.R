@@ -2,7 +2,8 @@
 # RNA-seq counts preparation
 # Author: Adil Hannaoui Anaaoui
 # ==========================
-library(tidyverse)
+library(dplyr)
+library(readr)
 
 # --------------------------
 # Load configuration
@@ -84,6 +85,7 @@ saveRDS(counts_matrix, file = file.path(OUTPUT_DIR, "counts_matrix.rds"))
 saveRDS(colData, file = file.path(OUTPUT_DIR, "colData.rds"))
 
 message("Counts preparation completed successfully")
+
 
 
 
