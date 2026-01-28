@@ -19,7 +19,7 @@ library(enrichplot)
 # --------------------------
 # Load configuration
 # --------------------------
-source("config.R")
+source("R/config.R")
 
 # --------------------------
 # Load precomputed objects
@@ -106,3 +106,4 @@ grid.arrange(
   top=textGrob("GO enrichment WT vs Rpb4-S/T-D", gp=gpar(fontsize=16, fontface="bold"))
 )
 dev.off()
+
