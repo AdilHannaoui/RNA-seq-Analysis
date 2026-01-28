@@ -6,7 +6,7 @@
 # --------------------------
 # Load configuration
 # --------------------------
-source("config.R") 
+source("R/config.R") 
 
 library(DESeq2)
 library(tidyverse)
@@ -66,4 +66,5 @@ write.csv(as.data.frame(res_WT_vs_A_sig), file = file.path(OUTPUT_DIR, "DESeq2_W
 write.csv(as.data.frame(res_WT_vs_D_sig), file = file.path(OUTPUT_DIR, "DESeq2_WT_vs_D_sig.csv"))
 
 cat("DESeq2 analysis completed. Significant results saved in:", OUTPUT_DIR, "\n")
+
 
