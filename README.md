@@ -195,9 +195,7 @@ The principal component analysis shows that PC1 (55%) primarily separates WT fro
 </p>
 
 <p align="justify">
-Differential expression comparisons between each mutant and the WT, applying the adjusted significance threshold (PADJ_THRESHOLD = 0.05) and the minimum fold‑change requirement (LOG2FC_THRESHOLD = 1), show that altering the S/T residues of Rpb4 has a robust impact on the transcriptome.
-The S/T‑A mutant displays a larger number of genes surpassing both thresholds, with a broader and more dispersed regulatory pattern, consistent with a complete loss of phosphorylation‑dependent regulation.
-In contrast, the S/T‑D mutant exhibits a more moderate profile, with fewer genes meeting the significance and magnitude criteria, suggesting partial preservation of the functional state associated with phosphorylation.
+MA plots comparing WT to rpb4‑S/T→A and WT to rpb4Δ (mean normalized counts vs log2FC). rpb4Δ shows a larger number of differentially expressed genes and greater fold‑changes (|log2FC| ≥ 1 and padj < 0.05), whereas rpb4‑S/T→A exhibits fewer and smaller expression changes.
 </p>
 
 ### Volcano plot
@@ -207,10 +205,7 @@ In contrast, the S/T‑D mutant exhibits a more moderate profile, with fewer gen
 </p>
 
 <p align="justify">
-The volcano plots, generated using the same criteria (padj < 0.05 and |log2FC| ≥ 1), confirm that both mutations induce statistically significant transcriptomic changes relative to WT.
-The phospho‑null mutant (S/T‑A) shows a clearly higher number of differentially expressed genes and a wider range of log2FC values, indicating deeper deregulation.
-The phosphomimetic mutant (S/T‑D) maintains a more conserved profile, consistent with partial retention of Rpb4’s regulatory function.
-These results reinforce the notion that Rpb4 phosphorylation is required to maintain proper control of gene expression.
+Volcano plots (log2FC vs −log10(padj)) comparing WT to rpb4‑S/T→A and WT to rpb4Δ. rpb4Δ shows many more significant genes and larger fold‑changes (padj < 0.05 and |log2FC| ≥ 1), with a bias hacia down‑regulation; rpb4‑S/T→A exhibits fewer and smaller expression changes.
 </p>
 
 ### Heatmap
