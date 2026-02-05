@@ -22,7 +22,7 @@ TABLES_DIR <- file.path(OUTPUT_DIR, "tables")
 # --------------------------
 CONDITIONS <- c(
   rep("Rpb4-S/T-A", 3),
-  rep("Rpb4-S/T-D", 3),
+  rep("Rpb4-Δ", 3),
   rep("WT", 6)
 )
 
@@ -47,5 +47,6 @@ QVAL_CUTOFF <- 0.05
 # --------------------------
 ORG_DB <- "org.Sc.sgd.db"
 GENE_ID_TYPE <- "ORF" 
+
 
 
