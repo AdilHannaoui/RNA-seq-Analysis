@@ -45,7 +45,7 @@ dds <- DESeq(dds)
 # Extract results for contrasts
 # --------------------------
 res_WT_vs_A <- results(dds, contrast = c("condition", "Rpb4-S/T-A", REFERENCE_CONDITION))
-res_WT_vs_D <- results(dds, contrast = c("condition", "Rpb4-S/T-D", REFERENCE_CONDITION))
+res_WT_vs_D <- results(dds, contrast = c("condition", "Rpb4-Δ", REFERENCE_CONDITION))
 
 # --------------------------
 # Filter significant genes
@@ -66,6 +66,7 @@ write.csv(as.data.frame(res_WT_vs_A_sig), file = file.path(OUTPUT_DIR, "DESeq2_W
 write.csv(as.data.frame(res_WT_vs_D_sig), file = file.path(OUTPUT_DIR, "DESeq2_WT_vs_D_sig.csv"))
 
 cat("DESeq2 analysis completed. Significant results saved in:", OUTPUT_DIR, "\n")
+
 
 
 
