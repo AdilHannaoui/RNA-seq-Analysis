@@ -110,7 +110,7 @@ Outputs:
 - Organism: Saccharomyces cerevisiae
 - Conditions:
   - WT (n = 6)
-  - Rpb4-S/T-A (n = 3)
+  - Rpb4-Δ (n = 3)
   - Rpb4-S/T-D (n = 3)
 - Data type: RNA-seq (Single End)
 
@@ -148,7 +148,7 @@ This project, carried out at the Institute of Functional Biology and Genomics (I
 
 * Rpb4‑S/T‑A: the five phosphorylatable residues identified in Rpb4 are replaced with alanine, thereby eliminating any potential phosphorylation or regulatory interaction mediated by these sites.
 
-* Rpb4‑S/T‑D: the same five residues are replaced with aspartate, introducing a negative charge that mimics the phosphorylated state of serine and threonine residues.
+* Rpb4‑Δ: subunit with a loss-of-function mutation in the 5 amino acids
 
 The purpose of these constructs is to determine the functional role of these residues in Rpb4 activity and, consequently, in the proper performance of RNA polymerase II, assessing how phosphorylation (or its absence) influences key transcriptional processes.
 </p>
