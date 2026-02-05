@@ -214,10 +214,7 @@ Volcano plots (log2FC vs −log10(padj)) comparing WT to rpb4‑S/T→A and WT t
 </p>
 
 <p align="justify">
-The heatmap, built from the 50 most significantly regulated genes in the WT vs S/T‑A comparison (ranked by padj), shows clearly distinct expression patterns among WT, S/T‑A, and S/T‑D.
-Even when using ORF identifiers (GENE_ID_TYPE = "ORF") and the org.Sc.sgd.db annotation, the separation between conditions remains consistent.
-The S/T‑A mutant exhibits a more pronounced and coordinated deregulation, whereas S/T‑D partially preserves the WT pattern.
-These results highlight the contribution of Rpb4 phosphorylation to the coordination of specific gene programs.
+Heatmap of the top 50 DE genes (Z‑score scaled); columns clustered by sample and rows by gene. rpb4Δ samples (blue) show a distinct expression signature compared to WT, while rpb4‑S/T→A samples are closer to WT.
 </p>
 
 ### Enrichment Analysis
@@ -230,15 +227,16 @@ These results highlight the contribution of Rpb4 phosphorylation to the coordina
 The functional enrichment analysis, performed on differentially expressed genes meeting both padj < 0.05 and |log2FC| ≥ 1, and restricted to the biological process ontology (GO_ONTOLOGY = "BP") with p‑value < 0.05 and q‑value < 0.05, reveals distinct functional signatures for each mutant.
   
 * Rpb4‑S/T‑A (phospho‑null)
-  * Strong deregulation of metabolic pathways.
-  * Negative enrichment in nucleotide biosynthesis processes, particularly purines and IMP.
-  * Positive enrichment in amino acid metabolism pathways, including arginine and glutamine.
-    This profile is consistent with a complete loss of phosphorylation‑dependent regulation.
+  * Underexpressed processes: Nucleoside monophosphate and IMP biosynthesis; purine ribonucleotide metabolic pathways are specifically depleted.
+  * Overexpressed processes: Carboxylic/oxoacid metabolism and amino‑acid metabolic and catabolic pathways (notably glutamine and arginine).
+    
+    The S/T→A phospho‑null mutation appears to impair nucleotide anabolism while shifting cellular metabolism toward amino‑acid and organic‑acid processing,           consistent with a metabolic reprogramming or compensatory response.
 
-* Rpb4‑S/T‑D (phosphomimetic)
-  * Alterations in reproductive processes and organic acid biosynthesis.
-  * Activation of pathways related to amino acid catabolism and protein folding responses.
-    These changes suggest partial modulation of Rpb4‑dependent regulatory programs.
+* Rpb4‑S/T‑D (loss-of-function)
+  * Underexpressed processes: Reproduction and sexual/cell‑fusion related processes; small molecule and carboxylic acid biosynthesis are reduced.
+  * Overexpressed processes: Protein folding, refolding, chaperone‑mediated folding and unfolded protein response; organonitrogen compound catabolism and              amino‑acid catabolic processes.
+
+    Loss of Rpb4 triggers proteostatic stress and chaperone activation while impairing biosynthetic and reproductive programs, consistent with a broad                 loss‑of‑function phenotype that compromises cellular homeostasis.
 </p>
 
 ## Conclusions
