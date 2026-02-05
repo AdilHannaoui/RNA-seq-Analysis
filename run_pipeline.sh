@@ -6,6 +6,8 @@ set -o pipefail
 SECONDS=0
 echo "=== Pipeline started successfully ===)"
 
+mkdir -p logs
+
 # 1. Environment Activation
 echo "[1/7] Activating Conda environment..."
 source ~/miniconda3/etc/profile.d/conda.sh
@@ -17,29 +19,28 @@ CONFIG_R="R/config.R"
 echo "[2/7] Loading bash config..."
 CONFIG_bash="bash/config.sh"
 
-
 # 3. QC
 echo "[3/7] Running FastQC..."
-bash bash/01-fastqc.sh $CONFIG_bash
+bash bash/01-fastqc.sh $CONFIG_bash > logs/01-fastqc.log 2>&1
 
 # 4. Trimming
 echo "[4/7] Running Trimmomatic..."
-bash bash/02-trimming.sh $CONFIG_bash
+bash bash/02-trimming.sh $CONFIG_bash > logs/02-trimming.log 2>&1
 
 # 5. Alineamiento
 echo "[5/7] Running HISAT2..."
-bash bash/03-alignment_hisat2.sh $CONFIG_bash
+bash bash/03-alignment_hisat2.sh $CONFIG_bash > logs/03-alignment_hisat2.log 2>&1
 
 # 6. Counts
 echo "[6/7] Running featureCounts..."
-bash bash/04-featurecounts.sh $CONFIG_bash
+bash bash/04-featurecounts.sh $CONFIG_bash > logs/04-featurecounts.log 2>&1
 
 # 7. R Analysis
 echo "[7/7] Running DESeq2 and downstream analysis..."
-Rscript R/01-load_counts.R $CONFIG_R
-Rscript R/02-deseq2_analysis.R $CONFIG_R
-Rscript R/03-enrichment_analysis.R $CONFIG_R
-Rscript R/04-visualizations.R $CONFIG_R
+Rscript R/01-load_counts.R $CONFIG_R > logs/01-load_counts.log 2>&1
+Rscript R/02-deseq2_analysis.R $CONFIG_R > logs/02-deseq2_analysis.log 2>&1
+Rscript R/03-enrichment_analysis.R $CONFIG_R > logs/03-enrichment_analysos.log.log 2>&1
+Rscript R/04-visualizations.R $CONFIG_R > logs/04-visualizations.log 2>&1
 
 
 duration=$SECONDS
