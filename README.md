@@ -111,7 +111,7 @@ Outputs:
 - Conditions:
   - WT (n = 6)
   - Rpb4-Δ (n = 3)
-  - Rpb4-S/T-D (n = 3)
+  - Rpb4-Δ (n = 3)
 - Data type: RNA-seq (Single End)
 
 Biological replicates were used for all conditions.
