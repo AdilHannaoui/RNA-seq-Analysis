@@ -185,7 +185,7 @@ Differential expression was assessed using the DESeq2 package. This allows us to
 </p>
 
 <p align="justify">
-The principal component analysis, performed after filtering out genes with fewer than 10 total counts (MIN_COUNTS_FILTER = 10), reveals a clear separation among the three transcriptomic conditions: wild type (WT), phospho‑null mutant (S/T‑A), and phosphomimetic mutant (S/T‑D). The major source of variation (PC1) distinctly separates WT from both mutants, while PC2 consistently distinguishes the two allelic variants. This structure indicates that substitutions at the phosphorylatable residues of Rpb4 generate global and differentiated effects on gene expression.
+The principal component analysis shows that PC1 (55%) primarily separates WT from rpb4Δ. rpb4Δ is clearly shifted relative to WT, indicating a broad and consistent transcriptomic change. rpb4‑S/T→A clusters closer to WT or occupies an intermediate position, suggesting a subtler or partial effect. Overall, loss of Rpb4 produces a larger global impact on the transcriptome than the S/T→A phospho‑null mutation.
 </p>
 
 ### MA plot
