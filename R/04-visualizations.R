@@ -40,7 +40,7 @@ plotMA(res_WT_vs_A, main="MA Plot WT vs Rpb4-S/T-A", ylim=c(-5,5))
 dev.off()
 
 png(file.path(PLOTS_DIR, "MA_WT_vs_D.png"), width = 8, height = 6, units = "in", res = 200)
-plotMA(res_WT_vs_D, main="MA Plot WT vs Rpb4-S/T-D", ylim=c(-5,5))
+plotMA(res_WT_vs_D, main="MA Plot WT vs Rpb4-Δ", ylim=c(-5,5))
 dev.off()
 
 # --------------------------
@@ -83,7 +83,7 @@ volcano_plot(res_WT_vs_A, "WT vs Rpb4-S/T-A")
 dev.off()
 
 png(file.path(PLOTS_DIR, "Volcano_WT_vs_D.png"), width = 8, height = 6, units = "in", res = 200)
-volcano_plot(res_WT_vs_D, "WT vs Rpb4-S/T-D")
+volcano_plot(res_WT_vs_D, "WT vs Rpb4-Δ")
 dev.off()
 
 # --------------------------
@@ -103,7 +103,8 @@ grid.arrange(
   dotplot(enrich_WT_vs_D_under, showCategory=10) + ggtitle("Underexpressed"),
   dotplot(enrich_WT_vs_D_over, showCategory=10) + ggtitle("Overexpressed"),
   ncol=2,
-  top=textGrob("GO enrichment WT vs Rpb4-S/T-D", gp=gpar(fontsize=16, fontface="bold"))
+  top=textGrob("GO enrichment WT vs Rpb4-Δ", gp=gpar(fontsize=16, fontface="bold"))
 )
 dev.off()
+
 
