@@ -241,11 +241,9 @@ The functional enrichment analysis, performed on differentially expressed genes 
 
 ## Conclusions
 <p align="justify">
-The set of transcriptomic analyses, applying strict filtering and significance criteria (minimum counts, padj < 0.05, |log2FC| ≥ 1), demonstrates that Rpb4 phosphorylation is essential for maintaining transcriptomic homeostasis.
-The PCA reveals globally distinct profiles among WT, S/T‑A, and S/T‑D.
-The MA and volcano plots confirm that both mutations generate significant changes, with stronger effects in the phospho‑null mutant.
-The heatmap of the most regulated genes reinforces this difference, showing coordinated deregulation in S/T‑A and a more conserved pattern in S/T‑D.
-Finally, the GO‑BP enrichment analysis shows that the mutations affect specific metabolic and cellular response pathways, underscoring the functional importance of Rpb4 phosphorylation in gene regulation.
+  
+Integrated analysis of PCA, MA/volcano plots, heatmap and GO enrichment indicates that **Rpb4 deletion (rpb4Δ) causes a broad transcriptomic disruption**, characterized by numerous differentially expressed genes, predominant down‑regulation of biosynthetic and reproductive programs, and induction of proteostasis/chaperone responses. **The S/T→A phospho‑null mutant shows a subtler phenotype**, with down‑regulation of purine/ribonucleotide biosynthesis and a metabolic shift toward amino‑acid and organic‑acid pathways, suggesting a partial or pathway‑specific functional alteration. Validation experiments (qPCR, protein assays, metabolite measurements) are recommended to confirm these signatures.
+
 </p>
 
 
