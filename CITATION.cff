@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "RNA-seq Analysis Pipeline for Rpb4 Mutants in Saccharomyces cerevisiae"
+version: 1.0.0
+date-released: 2025-01-21
+authors:
+  - family-names: "Hannaoui Anaaoui"
+    given-names: "Adil"
+abstract: >-
+  A complete RNA-seq analysis pipeline for studying transcriptional changes 
+  in Saccharomyces cerevisiae strains carrying phospho-null and phospho-mimetic 
+  mutations in the Rpb4 subunit of RNA polymerase II. The pipeline includes 
+  quality control, read alignment, differential expression analysis, and 
+  downstream statistical analysis using DESeq2 and GO enrichment. 
+  Data generated at the Institute of Functional Biology and Genomics (IBFG).
+keywords:
+  - RNA-seq
+  - Saccharomyces cerevisiae
+  - Rpb4
+  - RNA polymerase II
+  - differential expression
+  - DESeq2
+  - bioinformatics
+  - genomics
+license: MIT
+repository-code: "https://github.com/tu-usuario/rnaseq-rpb4"
+url: "https://github.com/tu-usuario/rnaseq-rpb4"
