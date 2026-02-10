@@ -1,0 +1,47 @@
+# .gitignore recomendado para tu proyecto
+
+# ===== Outputs y resultados =====
+Plots/*
+!Plots/.gitkeep
+data/*.rds
+data/*.csv
+data/*.txt
+logs/*.log
+
+# ===== Archivos grandes =====
+*.fastq
+*.fastq.gz
+*.bam
+*.bam.bai
+*.sam
+
+# ===== Reference genomes =====
+reference/*.fa
+reference/*.fasta
+reference/*.gtf
+reference/*.gff
+*.ht2
+*.bt2
+
+# ===== Conda/Python =====
+__pycache__/
+*.py[cod]
+.conda/
+.mamba/
+
+# ===== R =====
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
+
+# ===== Sistema =====
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
+# ===== Temporal =====
+tmp/
+temp/
+*.tmp
