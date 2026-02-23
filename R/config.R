@@ -48,13 +48,26 @@ TABLES_DIR <- file.path(OUTPUT_DIR, "tables")
 # --------------------------
 # Experimental design
 # --------------------------
+#CONDITIONS <- c(
+#  rep("Rpb4-S/T-A", 3),
+#  rep("Rpb4-Δ", 3),
+#  rep("WT", 6)
+#)
+
+#REFERENCE_CONDITION <- "WT"
+
+
+# --------------------------
+# Experimental test data design
+# --------------------------
 CONDITIONS <- c(
-  rep("Rpb4-S/T-A", 3),
-  rep("Rpb4-Δ", 3),
+  rep("KO", 4),
   rep("WT", 6)
 )
 
 REFERENCE_CONDITION <- "WT"
+
+
 
 # Validate reference condition
 if (!REFERENCE_CONDITION %in% CONDITIONS) {
@@ -196,3 +209,4 @@ dir.create(PLOTS_DIR, showWarnings = FALSE, recursive = TRUE)
 dir.create(TABLES_DIR, showWarnings = FALSE, recursive = TRUE)
 
 message("✓ Output directories ensured")
+
