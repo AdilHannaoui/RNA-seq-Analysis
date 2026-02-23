@@ -76,7 +76,13 @@ conda activate rnaseq-rpb4
 hisat2-build reference/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa reference/sc_hisat2_index
 ```
 
-5. **Run pipeline**
+5. **Download Test data**
+```bash
+chmod +x download_test_data.sh
+bash download_test_data.sh
+```
+
+6. **Run pipeline**
 ```bash
 bash run_pipeline.sh
 ```
