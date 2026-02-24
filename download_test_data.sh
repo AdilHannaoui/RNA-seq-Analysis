@@ -6,7 +6,7 @@ set -euo pipefail
 # Source: ENA (EBI)
 # ============================================
 
-DATA_DIR="data"
+DATA_DIR="data/test"
 BASE_URL="https://www.ebi.ac.uk/ena/browser/view"
 
 mkdir -p "${DATA_DIR}"
