@@ -1,6 +1,4 @@
-# .gitignore recomendado para tu proyecto
-
-# ===== Outputs y resultados =====
+# ===== Outputs and results =====
 Plots/*
 !Plots/.gitkeep
 data/*.rds
@@ -8,7 +6,7 @@ data/*.csv
 data/*.txt
 logs/*.log
 
-# ===== Archivos grandes =====
+# ===== Files =====
 *.fastq
 *.fastq.gz
 *.bam
@@ -35,7 +33,7 @@ __pycache__/
 .Rproj.user
 *.Rproj
 
-# ===== Sistema =====
+# ===== System =====
 .DS_Store
 Thumbs.db
 *~
