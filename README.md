@@ -170,7 +170,7 @@ Outputs:
 - Organism: Saccharomyces cerevisiae
 - Conditions:
   - WT (n = 6)
-  - Rpb4-Δ (n = 3)
+  - Rpb4-S/T-A (n = 3)
   - Rpb4-Δ (n = 3)
 - Data type: RNA-seq (Single End)
 
