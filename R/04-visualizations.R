@@ -75,13 +75,13 @@ dds <- readRDS(file.path(OUTPUT_DIR, "dds.rds"))
 # Load full (unfiltered) DESeq2 results per contrast for MA/volcano/heatmap
 results_list <- list()
 for (ct in CONTRASTS) {
-  rds_path <- file.path(OUTPUT_DIR, paste0("DESeq2_", ct$name, "_full.rds"))
+  rds_path <- file.path(OUTPUT_DIR, paste0("DESeq2_", ct$name, "_sig.rds"))
   if (file.exists(rds_path)) {
     results_list[[ct$name]] <- readRDS(rds_path)
     message("  ✓ Loaded DESeq2 results: ", ct$name)
   } else {
     warning("Full results RDS not found for contrast '", ct$name, "': ", rds_path)
-    message("  ⚠ Missing: DESeq2_", ct$name, "_full.rds — MA and Volcano plots will be skipped")
+    message("  ⚠ Missing: DESeq2_", ct$name, "_sig.rds — MA and Volcano plots will be skipped")
     results_list[[ct$name]] <- NULL
   }
 }
