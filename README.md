@@ -44,8 +44,8 @@ The objective of this project is to characterize transcriptional changes associa
 
 1. **Clone repository**
 ```bash
-git clone https://github.com/tu-usuario/rnaseq-rpb4.git
-cd rnaseq-rpb4
+git clone https://github.com/AdilHannaoui/RNA-seq-Analysis
+cd RNA-seq-Analysis
 ```
 
 2. **Create environment**
