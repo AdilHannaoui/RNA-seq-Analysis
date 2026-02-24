@@ -10,7 +10,7 @@ library(org.Sc.sgd.db)
 # --------------------------
 # 1. Load config
 # --------------------------
-source("R/config.R")  # contiene rutas, log2FC_threshold, ontología, etc.
+source("R/config.R")
 
 
 # --------------------------
@@ -60,5 +60,4 @@ for (ct in CONTRASTS) {
   res_sig <- readRDS(file.path(OUTPUT_DIR, paste0("DESeq2_", ct$name, "_sig.rds")))
   enrich_list[[ct$name]] <- perform_enrichGO(res_sig, ct$name)
 }
-
 
