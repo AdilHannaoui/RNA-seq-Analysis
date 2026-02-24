@@ -23,7 +23,7 @@ perform_enrichGO <- function(res, comparison_name) {
   
   # Convert ENSEMBL IDs to ENTREZ
   gene_list_entrez <- bitr(names(gene_list), fromType="ENSEMBL",
-                           toType="ENTREZID", OrgDb=org.Sc.sgd.db)
+                           toType="ENTREZID", OrgDb=ORG_DB)
   
   # Keep only mapped genes
   gene_list <- gene_list[gene_list_entrez$ENSEMBL %in% names(gene_list)]
@@ -35,10 +35,10 @@ perform_enrichGO <- function(res, comparison_name) {
   under_genes <- names(gene_list[gene_list < -LOG2FC_THRESHOLD])
   
   # Enrichment
-  enrich_over <- enrichGO(gene = over_genes, OrgDb = org.Sc.sgd.db,
+  enrich_over <- enrichGO(gene = over_genes, OrgDb = ORG_DB,
                           ont = GO_ONTOLOGY, pvalueCutoff = PADJ_THRESHOLD)
   
-  enrich_under <- enrichGO(gene = under_genes, OrgDb = org.Sc.sgd.db,
+  enrich_under <- enrichGO(gene = under_genes, OrgDb = ORG_DB,
                            ont = GO_ONTOLOGY, pvalueCutoff = PADJ_THRESHOLD)
   
   # Save results
@@ -60,4 +60,5 @@ for (ct in CONTRASTS) {
   res_sig <- readRDS(file.path(OUTPUT_DIR, paste0("DESeq2_", ct$name, "_sig.rds")))
   enrich_list[[ct$name]] <- perform_enrichGO(res_sig, ct$name)
 }
+
 
