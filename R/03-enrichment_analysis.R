@@ -12,11 +12,6 @@ library(org.Sc.sgd.db)
 # --------------------------
 source("R/config.R")  # contiene rutas, log2FC_threshold, ontología, etc.
 
-# --------------------------
-# 2. Load DESeq2 results
-# --------------------------
-res_WT_vs_A <- readRDS(file.path(OUTPUT_DIR, "DESeq2_WT_vs_A_sig.rds"))
-res_WT_vs_D <- readRDS(file.path(OUTPUT_DIR, "DESeq2_WT_vs_D_sig.rds"))
 
 # --------------------------
 # 3. Function to perform GO enrichment
@@ -59,5 +54,10 @@ perform_enrichGO <- function(res, comparison_name) {
 # --------------------------
 # 4. Run enrichment for each comparison
 # --------------------------
-enrich_WT_vs_A <- perform_enrichGO(res_WT_vs_A, "WT_vs_A")
-enrich_WT_vs_D <- perform_enrichGO(res_WT_vs_D, "WT_vs_D")
+enrich_list <- list()
+
+for (ct in CONTRASTS) {
+  res_sig <- readRDS(file.path(OUTPUT_DIR, paste0("DESeq2_", ct$name, "_sig.rds")))
+  enrich_list[[ct$name]] <- perform_enrichGO(res_sig, ct$name)
+}
+
