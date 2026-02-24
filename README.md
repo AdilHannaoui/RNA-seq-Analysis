@@ -180,7 +180,7 @@ Biological replicates were used for all conditions.
 <p align="justify">
   
 RNA-seq data were generated at the Institute of Functional Biology and Genomics (IBFG).
-Due to data usage restrictions, raw sequencing files (FASTQ) cannot be publicly shared. However, test data will be uploaded to the ``` data/test/ ``` folder to allow testing of the pipeline’s functionality.
+Due to data usage restrictions, test data can be downloaded using the provided ``` download_test_data.sh ``` script to allow testing of the pipeline’s functionality.
 
 Gene-level count matrices and sample metadata are provided in this repository,
 allowing full reproducibility of the downstream statistical analysis.
@@ -265,7 +265,7 @@ MA plots comparing WT to rpb4‑S/T→A and WT to rpb4Δ (mean normalized counts
 </p>
 
 <p align="justify">
-Volcano plots (log2FC vs −log10(padj)) comparing WT to rpb4‑S/T→A and WT to rpb4Δ. rpb4Δ shows many more significant genes and larger fold‑changes (padj < 0.05 and |log2FC| ≥ 1), with a bias hacia down‑regulation; rpb4‑S/T→A exhibits fewer and smaller expression changes.
+Volcano plots (log2FC vs −log10(padj)) comparing WT to rpb4‑S/T→A and WT to rpb4Δ. rpb4Δ shows many more significant genes and larger fold‑changes (padj < 0.05 and |log2FC| ≥ 1), with a clear down‑regulation; rpb4‑S/T→A exhibits fewer and smaller expression changes.
 </p>
 
 ### Heatmap
