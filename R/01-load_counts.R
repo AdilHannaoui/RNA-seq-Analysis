@@ -85,11 +85,3 @@ saveRDS(counts_matrix, file = file.path(OUTPUT_DIR, "counts_matrix.rds"))
 saveRDS(colData, file = file.path(OUTPUT_DIR, "colData.rds"))
 
 message("Counts preparation completed successfully")
-
-
-
-
-
-
-
-
