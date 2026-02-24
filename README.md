@@ -241,7 +241,7 @@ Differential expression was assessed using the DESeq2 package. This allows us to
 ## Results
 ### PCA
 <p float="left">
-  <img src="Plots/PCA_all_samples.png" width="70%"
+  <img src="Plots/real/PCA_all_samples.png" width="70%"
 </p>
 
 <p align="justify">
@@ -250,8 +250,8 @@ The principal component analysis shows that PC1 (55%) primarily separates WT fro
 
 ### MA plot
 <p float="left">
-  <img src="Plots/MA_WT_vs_A.png" width="45%" />
-  <img src="Plots/MA_WT_vs_D.png" width="45%" />
+  <img src="Plots/real/MA_WT_vs_A.png" width="45%" />
+  <img src="Plots/real/MA_WT_vs_D.png" width="45%" />
 </p>
 
 <p align="justify">
@@ -260,8 +260,8 @@ MA plots comparing WT to rpb4‑S/T→A and WT to rpb4Δ (mean normalized counts
 
 ### Volcano plot
 <p float="left">
-  <img src="Plots/Volcano_WT_vs_A.png" width="45%" />
-  <img src="Plots/Volcano_WT_vs_D.png" width="45%" />
+  <img src="Plots/real/Volcano_WT_vs_A.png" width="45%" />
+  <img src="Plots/real/Volcano_WT_vs_D.png" width="45%" />
 </p>
 
 <p align="justify">
@@ -270,7 +270,7 @@ Volcano plots (log2FC vs −log10(padj)) comparing WT to rpb4‑S/T→A and WT t
 
 ### Heatmap
 <p float="left">
-  <img src="Plots/Heatmap_top50_WT_vs_conditions.png" width="70%" 
+  <img src="Plots/real/Heatmap_top50_WT_vs_conditions.png" width="70%" 
 </p>
 
 <p align="justify">
@@ -279,8 +279,8 @@ Heatmap of the top 50 DE genes (Z‑score scaled); columns clustered by sample a
 
 ### Enrichment Analysis
 <p float="left">
-  <img src="Plots/GO_WT_vs_A.png" width="45%" />
-  <img src="Plots/GO_WT_vs_D.png" width="45%" />
+  <img src="Plots/real/GO_WT_vs_A.png" width="45%" />
+  <img src="Plots/real/GO_WT_vs_D.png" width="45%" />
 </p>
 
 <p align="justify">
