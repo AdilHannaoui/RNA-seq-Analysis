@@ -58,6 +58,3 @@ saveRDS(dds, file = file.path(OUTPUT_DIR, "dds.rds"))
 
 
 cat("DESeq2 analysis completed. Significant results saved in:", OUTPUT_DIR, "\n")
-
-
-
