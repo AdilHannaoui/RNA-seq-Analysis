@@ -309,7 +309,7 @@ Integrated analysis of PCA, MA/volcano plots, heatmap and GO enrichment indicate
 
 ## Limitations
 
-* The raw RNA-seq sequence files used in this project cannot be uploaded to the repository, which may limit full reproducibility of the analyses. However, the count matrices, ```dds``` objects, and metadata are included in the ```data``` folder, enabling complete reproducibility of all statistical analysis steps.
+* The raw RNA-seq sequence files used in this project cannot be uploaded to the repository, which may limit full reproducibility of the analyses. However, the count matrices, ```dds``` objects, and metadata are included in the ```output/real/``` folder, enabling complete reproducibility of all statistical analysis steps.
 
 * Example/sample data are also provided to verify that the master pipeline runs correctly.
 
