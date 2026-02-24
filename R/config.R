@@ -36,37 +36,38 @@ get_project_root <- function() {
   return(getwd())
 }
 
+
+# ============================================================
+# DATASET SELECTION
+# ============================================================
+DATASET <- "test"
+
+# Test data:
+if (DATASET == "test") {
+  CONDITIONS <- c(rep("KO", 4), rep("WT", 6))
+  CONTRASTS  <- list(
+    list(name = "WT_vs_KO", treatment = "KO", label = "WT vs KO")
+  )
+} else {
+  CONDITIONS <- c(rep("Rpb4-S/T-A", 3), rep("Rpb4-Δ", 3), rep("WT", 6))
+  CONTRASTS  <- list(
+    list(name = "WT_vs_A", treatment = "Rpb4-S/T-A", label = "WT vs Rpb4-S/T-A"),
+    list(name = "WT_vs_D", treatment = "Rpb4-Δ",     label = "WT vs Rpb4-Δ")
+  )
+}
+
+REFERENCE_CONDITION <- "WT"
+# ============================================================
+
+
 PROJECT_ROOT <- get_project_root()
-DATA_DIR <- file.path(PROJECT_ROOT, "data")
-OUTPUT_DIR <- file.path(PROJECT_ROOT, "output")
+DATA_DIR <- file.path(PROJECT_ROOT, "data", DATASET)
+OUTPUT_DIR <- file.path(PROJECT_ROOT, "output", DATASET)
 COUNTS_MATRIX_PATH <- file.path(OUTPUT_DIR, "counts_matrix.rds")
 SAMPLE_METADATA_PATH <- file.path(OUTPUT_DIR, "colData.rds")
 FEATURECOUNTS_DIR <- file.path(OUTPUT_DIR, "featurecounts")
-PLOTS_DIR <- file.path(PROJECT_ROOT, "Plots")
+PLOTS_DIR <- file.path(PROJECT_ROOT, "Plots", DATASET)
 TABLES_DIR <- file.path(OUTPUT_DIR, "tables")
-
-# --------------------------
-# Experimental design
-# --------------------------
-#CONDITIONS <- c(
-#  rep("Rpb4-S/T-A", 3),
-#  rep("Rpb4-Δ", 3),
-#  rep("WT", 6)
-#)
-
-#REFERENCE_CONDITION <- "WT"
-
-
-# --------------------------
-# Experimental test data design
-# --------------------------
-CONDITIONS <- c(
-  rep("KO", 4),
-  rep("WT", 6)
-)
-
-REFERENCE_CONDITION <- "WT"
-
 
 
 # Validate reference condition
