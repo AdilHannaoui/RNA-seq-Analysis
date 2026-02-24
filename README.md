@@ -180,7 +180,7 @@ Biological replicates were used for all conditions.
 <p align="justify">
   
 RNA-seq data were generated at the Institute of Functional Biology and Genomics (IBFG).
-Due to data usage restrictions, raw sequencing files (FASTQ) cannot be publicly shared. However, test data will be uploaded to the ``` data/ ``` folder to allow testing of the pipeline’s functionality.
+Due to data usage restrictions, raw sequencing files (FASTQ) cannot be publicly shared. However, test data will be uploaded to the ``` data/test/ ``` folder to allow testing of the pipeline’s functionality.
 
 Gene-level count matrices and sample metadata are provided in this repository,
 allowing full reproducibility of the downstream statistical analysis.
