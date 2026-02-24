@@ -59,15 +59,8 @@ conda env create -f environment.yml
 
 3. **Download reference genome**
 ```bash
-# FASTA
-wget https://ftp.ensembl.org/pub/release-112/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
-gunzip Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
-mv Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa reference/
-
-# GTF
-wget https://ftp.ensembl.org/pub/release-112/gtf/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf.gz
-gunzip Saccharomyces_cerevisiae.R64-1-1.112.gtf.gz
-mv Saccharomyces_cerevisiae.R64-1-1.112.gtf reference/
+chmod +x download_genome.sh
+bash download_genome.sh
 ```
 
 4. **Build HISAT2 index**
