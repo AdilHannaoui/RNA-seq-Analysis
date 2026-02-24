@@ -40,7 +40,7 @@ get_project_root <- function() {
 # ============================================================
 # DATASET SELECTION
 # ============================================================
-DATASET <- "test"
+DATASET <- "real"
 
 # Test data:
 if (DATASET == "test") {
@@ -210,4 +210,3 @@ dir.create(PLOTS_DIR, showWarnings = FALSE, recursive = TRUE)
 dir.create(TABLES_DIR, showWarnings = FALSE, recursive = TRUE)
 
 message("✓ Output directories ensured")
-
