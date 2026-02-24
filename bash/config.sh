@@ -18,8 +18,8 @@ fi
 WORKDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 export WORKDIR
 
-OUTPUT_DIR="$WORKDIR/output"
-FASTQ_DIR="$WORKDIR/data"
+OUTPUT_DIR="$WORKDIR/output/real"
+FASTQ_DIR="$WORKDIR/data/real"
 BAM_DIR="$OUTPUT_DIR/hisat2"
 
 export OUTPUT_DIR FASTQ_DIR BAM_DIR
