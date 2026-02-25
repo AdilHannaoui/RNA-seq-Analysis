@@ -16,6 +16,7 @@ dependencies:
   - samtools=1.17
   - parallel
   - pigz
+  - sra-tools    
 
   # R packages
   - r-dplyr
