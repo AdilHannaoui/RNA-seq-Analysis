@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # ============================================
-# RNA-seq Test Dataset Downloader
+# RIP-seq Test Dataset Downloader
 # Source: ENA (EBI)
 # ============================================
 
