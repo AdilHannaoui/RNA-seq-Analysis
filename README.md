@@ -263,7 +263,7 @@ Volcano plots (log2FC vs −log10(padj)) comparing WT to rpb4‑S/T→A and WT t
 
 ### Heatmap
 <p float="left">
-  <img src="Plots/real/Heatmap_top50_WT_vs_conditions.png" width="70%" 
+  <img src="Plots/real/Heatmap_top50_WT_vs_conditions.png" width="70%" style="display:block; margin:auto;" 
 </p>
 
 <p align="justify">
