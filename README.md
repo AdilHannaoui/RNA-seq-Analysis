@@ -88,9 +88,23 @@ bash run_pipeline.sh
 ```
 
 ## Installation and running the pipeline
-The ```run_pipeline.sh``` script orchestrates all preprocessing, alignment, quantification, and downstream R analyses in a single command.
 
-All analyses are fully reproducible using the Conda environment defined in ```environment.yml```.
+All analyses are fully reproducible using the Conda environment defined in `environment.yml`.
+
+### Run with Snakemake (recommended)
+Snakemake automatically detects samples, handles parallelisation and skips 
+already completed steps.
+```bash
+snakemake --cores 8
+```
+
+### Run with Bash (classic)
+The `run_pipeline.sh` script orchestrates all steps in a single command.
+```bash
+bash run_pipeline.sh
+```
+
+Both options use the same Conda environment and produce identical results.
 
 ### Recommended: install ```mamba``` for faster environment creation
 Creating environments that include R + Bioconductor can be slow with the default Conda solver. For a much faster and smoother installation, it is recommended to install mamba in the base environment
