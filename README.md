@@ -76,6 +76,13 @@ bash download_test_data.sh
 ```
 
 6. **Run pipeline**
+**Option 1 — Snakemake (recommended):**
+```bash
+snakemake --cores 8
+```
+Snakemake automatically detects samples, handles parallelisation and skips already completed steps.
+
+**Option 2 — Bash (classic):**
 ```bash
 bash run_pipeline.sh
 ```
