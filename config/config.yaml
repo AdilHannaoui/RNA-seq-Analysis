@@ -1,0 +1,21 @@
+# =============================================================================
+# config/config.yaml — RNA-seq Pipeline Configuration
+# Author: Adil Hannaoui Anaaoui
+# =============================================================================
+
+# ── Directories ───────────────────────────────────────────────────────────────
+workdir:    "."
+fastq_dir:  "data/real"
+output_dir: "output/real"
+
+# ── References ────────────────────────────────────────────────────────────────
+hisat2_index: "HISAT2/cerevisiae/index/genome"
+gtf_file:     "HISAT2/cerevisiae/Saccharomyces_cerevisiae.R64-1-1.112.gtf"
+
+# ── Tools ─────────────────────────────────────────────────────────────────────
+# These paths are resolved automatically when the conda environment is active
+trimmomatic_jar: "${CONDA_PREFIX}/share/trimmomatic/trimmomatic.jar"
+adapters:        "${CONDA_PREFIX}/share/trimmomatic/adapters/TruSeq3-SE.fa"
+
+# ── Resources ─────────────────────────────────────────────────────────────────
+threads: 8
