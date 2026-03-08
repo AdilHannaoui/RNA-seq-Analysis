@@ -187,3 +187,7 @@ safe_plot(
 )
 
 message("\n✓ Visualization complete")
+
+sink('session_info.txt')
+sessionInfo()
+sink()
