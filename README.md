@@ -106,44 +106,6 @@ bash run_pipeline.sh
 
 Both options use the same Conda environment and produce identical results.
 
-### Recommended: install ```mamba``` for faster environment creation
-Creating environments that include R + Bioconductor can be slow with the default Conda solver. For a much faster and smoother installation, it is recommended to install mamba in the base environment
-
-```conda install -n base mamba```
-
-then create the environment using:
-
-```
-mamba env create -f environment.yml
-```
-
-If you prefer to use Conda:
-
-```
-conda env create -f environment.yml
-```
-
-Activate the environment
-
-```
-conda activate rnaseq-rpb4
-```
-
-Before running the pipeline, ensure execution permissions:
-
-```
-chmod +x run_pipeline.sh
-chmod +x bash/*.sh
-```
-
-Run the full workflow with:
-
-```
-bash run_pipeline.sh
-```
-
-</p>
-
 
 ## Configuration files
 
